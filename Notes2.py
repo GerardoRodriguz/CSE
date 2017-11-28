@@ -29,3 +29,30 @@ print("Hello %s." % name)
 # 
 age = input("How old are you")
 print("%s? You are young")
+
+
+ # Change to the file
+
+
+def print_hw():
+    print("Hello World")
+
+
+print_hw()
+
+
+def say_hi(name): # name is a "prarameter"
+    print("Hello %s." % name)
+    print("I hope you have a fantastic day.")
+
+
+say_hi("John")
+
+
+def birthday(age):
+    age = age + 1 # age = age + 1
+    print(age)
+
+say_hi("John")
+print("John is 15. Next year:")
+birthday(15)
