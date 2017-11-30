@@ -26,7 +26,7 @@ print("My car is the ")
 name = input("What is your name?")
 print("Hello %s." % name)
 # print(name)
-# 
+
 age = input("How old are you")
 print("%s? You are young")
 
@@ -85,8 +85,8 @@ def grade_cala(percentage):
         return "F"
 
 # Loops
-#for num in range(5):
-    #print(num + 1)
+# for num in range(5):
+    # print(num + 1)
 
 
 
@@ -106,3 +106,5 @@ print("Hello \nWorld") # \n means newline
 
 import random #imports should be at the top
 print(random.randint(0, 6))
+
+
