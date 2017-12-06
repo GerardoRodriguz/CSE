@@ -8,7 +8,7 @@ print("Hello World")
 
 print(3**2)
 
-print()#Creates a blank line
+print()  # Creates a blank line
 print("See if you can figure this out")
 print(15%5)
 
@@ -53,9 +53,10 @@ def birthday(age):
     age = age + 1  # age = age + 1
     print(age)
 
-say_hi("John")
-print("John is 15. Next year:")
-birthday(15)
+
+def say_hi(John):
+    print("John is 15. Next year:")
+    birthday(15)
 # birthday(15)
 #
 # Press Ctrl-A and Ctrl-/
@@ -90,8 +91,8 @@ def grade_cala(percentage):
 
 
 
-#for mystery in "Hello World":
-    #print(mystery)
+# for mystery in "Hello World":
+    # print(mystery)
 
 a = 1
 while a < 10:
@@ -104,7 +105,22 @@ while response != "Hello":
 
 print("Hello \nWorld") # \n means newline
 
-import random #imports should be at the top
+import random  # imports should be at the top
 print(random.randint(0, 6))
 
+# Comparisons
+print(1 == 1) # Two equal signs to compare
+print(1 != 2) # One is not equal to 2
+print(not False) # This prints true
+print(1 == 1 and 4 <= 5)
+print(1 < 0 or 5 > 1) # True
 
+# Recasting
+c = "1"
+print(c == 1) # False - c is a string, 1 is an int
+print(int(c) == 1) # True - Compare two ints
+print(c == str(1)) # True - Compare two strings
+
+
+num = input("Give me a number")
+# Inputs are ALWAYS (!!!!!!!) of type string!!!
