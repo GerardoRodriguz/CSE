@@ -3,7 +3,7 @@ import random
 print(random.randint(0, 50))
 
 
-def random_randint(input):
+def guess(input):
     print()
 
 

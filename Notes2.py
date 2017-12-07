@@ -124,4 +124,4 @@ print(c == str(1)) # True - Compare two strings
 
 num = input("Give me a number")
 # Inputs are ALWAYS (!!!!!!!) of type string!!!
-# 12/5/17
+# 12/5/17 
