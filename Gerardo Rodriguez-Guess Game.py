@@ -4,7 +4,7 @@ print(random.randint(0, 50))
 
 
 def guess(input):
-    print()
+    print("")
 
 
 
