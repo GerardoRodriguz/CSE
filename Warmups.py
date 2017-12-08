@@ -78,3 +78,21 @@ def repeat(string):
 
     for x in range(3):
         print(string)
+
+"""
+Write a function called "date"
+that takes in three parameters,
+"month", "day", and "year" and
+prints out the date, separated by a "/"
+
+example:
+date("12", "8", "17") == "12/8/17"
+Expert mode:
+date(12, 8, 17) == "12/8/17"
+"""
+
+
+def date(month, day, year):
+    print(str(month) + "/" + str(day) + "/" + str(year)
+
+date(12, 8, 17)
