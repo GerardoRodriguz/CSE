@@ -18,7 +18,7 @@ while int(guess) != number and guesses < 5:
         print("Higher.")
         guesses += 1
 if guesses >= 5:
-        print("Goodbye.")
+        print("Goodbye")
 
 
 
