@@ -1,12 +1,13 @@
 import random
 # GerardoRodriguez
 
-
+# Initiaizing Variables
 print(random.randint(1, 50))
 number = (random.randint(1, 50))
 guess = "0"
 guesses = 0
 
+# Describes exactly ONE turn. The while loop is the Game Controller.
 while int(guess) != number and guesses < 5:
     guess = input("What is your guess?")
     if guess == str(number):
