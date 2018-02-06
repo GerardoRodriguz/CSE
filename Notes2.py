@@ -1,6 +1,5 @@
 # print("Hello World")
-
-
+'''
 
 
 
@@ -183,3 +182,68 @@ print(string.punctuation)
 strTwo = 'ThIs sEntENce iS uNuSuAL'
 lowercase = strTwo.lower()
 print(lowercase)
+'''
+
+# Dictionaries - Make up a key: value pair
+dictionary = {"name": "Lance", "age": 18, "height": 6 * 12 + 2}
+
+# Accessing from a dictionary
+print(dictionary["name"])
+print(dictionary["height"])
+print(dictionary["age"])
+
+large_dictionary = {
+    "California": "CA",
+    "Michigan": "MI",
+    "Florida": "FL"
+}
+print(large_dictionary["Florida"])
+
+larger_dictionary = {
+    "California": [
+        "Fresno",
+        "Sacremento",
+        "Los Angles"
+    ]
+}
+#
+# print(larger_dictionary["Illinois"])
+# print(larger_dictionary["Illinois"][0])
+# print(larger_dictionary["Illinois"][])
+
+largest_dictionary = {
+    "CA": {
+        "NAME": "California",
+        "Population": 39250000,
+        "BORDER ST": [
+             "Oregon",
+             "Nevada",
+             "Arizona"
+         ]
+     },
+    "MI": {
+        "NAME": "Michigan",
+        "POPULATION": 9928000,
+        "BORDER ST": [
+            "Wisconsin",
+            "Ohio",
+            "Indiana"
+        ]
+    },
+    "FL": {
+        "NAME": "Florida",
+        "POPULATION": 20610000,
+        "BORDER ST": [
+            "Georgia",
+            "Alabama"
+        ]
+    }
+}
+
+print(largest_dictionary["FL"]["Border ST"][1])  # Get this to print out Ohio
+
+
+
+
+
+

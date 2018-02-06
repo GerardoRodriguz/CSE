@@ -14,17 +14,16 @@ letter = ("a", "b", "c", "d", "e", "h", "i", "j", "k", "l", "m", "n", "o", "p", 
           "U", "V", "W", "X", "Y", "Z")
 letters_guessed = []
 words = ["Smoke", "Thermite", "Jackal", "Valkyrie", "IQ", "Rook", "Sledge", "Bandit", "Twitch", "Blitz"]
-guesses = 0
-print(random.choice(words))
+guesses = 0-8
+Rainbow_Six_Siege = (random.choice(words))
 
 
-while int(letter) != letter and words:
+while str(letter) != letter and words:
     guess = input("What is your guess?")
-    if letter != letter and words:
+    if letter != words:
         print("Wrong")
-    if letter == letter and words:
+    if letter == words:
         print("Correct!")
-if guesses >= 0-8:
-    print("Hangman was made.")
-
-print()
+    if guesses >= 0-8:
+        print("Hangman was made.")
+print(letters_guessed)
