@@ -46,7 +46,7 @@ Hazardine_City = {
     },
 }
 
-
+# Game controller
 current_node = Hazardine_City["YOUR HOUSE"]
 directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'OUTSIDE', 'INSIDE']
 
