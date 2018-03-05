@@ -31,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Function Notes.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Function Notes.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Function Notes.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="481">
@@ -41,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="def pythagorean Gerardo Rodriguez.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="def pythagorean Gerardo Rodriguez.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/def pythagorean Gerardo Rodriguez.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+              <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -121,12 +121,12 @@
         <option value="$PROJECT_DIR$/Lucky 7s Gerardo Rodriguez.py" />
         <option value="$PROJECT_DIR$/Gerardo Rodriguez's Hangman.py" />
         <option value="$PROJECT_DIR$/Gerardo Rodriguez's Dictionary World Map.py" />
-        <option value="$PROJECT_DIR$/def pythagorean Gerardo Rodriguez.py" />
         <option value="$PROJECT_DIR$/Class Notes.py" />
         <option value="$PROJECT_DIR$/Gerardo Rodriguez's World Map OOP.py" />
         <option value="$PROJECT_DIR$/Notes2.py" />
         <option value="$PROJECT_DIR$/Gerardo Rodriguez's Game World Map.py" />
         <option value="$PROJECT_DIR$/Function Notes.py" />
+        <option value="$PROJECT_DIR$/def pythagorean Gerardo Rodriguez.py" />
       </list>
     </option>
   </component>
@@ -655,14 +655,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Function Notes.py___jb_tmp___" />
-    <entry file="file://$PROJECT_DIR$/def pythagorean Gerardo Rodriguez.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Class Notes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
@@ -699,6 +691,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
           <caret line="41" column="19" lean-forward="false" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/def pythagorean Gerardo Rodriguez.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
           <folding />
         </state>
       </provider>
