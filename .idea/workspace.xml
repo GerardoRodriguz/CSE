@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Notes2.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Notes2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Notes2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4199">
-              <caret line="247" column="77" lean-forward="false" selection-start-line="247" selection-start-column="77" selection-end-line="247" selection-end-column="77" />
+            <state relative-caret-position="362">
+              <caret line="247" column="78" lean-forward="false" selection-start-line="247" selection-start-column="78" selection-end-line="247" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -24,17 +24,17 @@
       <file leaf-file-name="Gerardo Rodriguez's Game World Map.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gerardo Rodriguez's Game World Map.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
+            <state relative-caret-position="192">
               <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="66" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gerardo Rodriguez's World Map OOP.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Gerardo Rodriguez's World Map OOP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gerardo Rodriguez's World Map OOP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
+            <state relative-caret-position="697">
               <caret line="47" column="46" lean-forward="true" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
               <folding />
             </state>
@@ -130,13 +130,13 @@
         <option value="$PROJECT_DIR$/Blackjack.py" />
         <option value="$PROJECT_DIR$/Lucky 7s Gerardo Rodriguez.py" />
         <option value="$PROJECT_DIR$/Gerardo Rodriguez's Hangman.py" />
-        <option value="$PROJECT_DIR$/Notes2.py" />
         <option value="$PROJECT_DIR$/Gerardo Rodriguez's Dictionary World Map.py" />
         <option value="$PROJECT_DIR$/Function Notes.py" />
         <option value="$PROJECT_DIR$/def pythagorean Gerardo Rodriguez.py" />
         <option value="$PROJECT_DIR$/Class Notes.py" />
         <option value="$PROJECT_DIR$/Gerardo Rodriguez's Game World Map.py" />
         <option value="$PROJECT_DIR$/Gerardo Rodriguez's World Map OOP.py" />
+        <option value="$PROJECT_DIR$/Notes2.py" />
       </list>
     </option>
   </component>
@@ -656,14 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Notes2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4199">
-          <caret line="247" column="77" lean-forward="false" selection-start-line="247" selection-start-column="77" selection-end-line="247" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gerardo Rodriguez's Dictionary World Map.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -697,18 +689,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Gerardo Rodriguez's World Map OOP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="47" column="46" lean-forward="true" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Gerardo Rodriguez's Game World Map.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
+        <state relative-caret-position="192">
           <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="66" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gerardo Rodriguez's World Map OOP.py">
+    <entry file="file://$PROJECT_DIR$/Notes2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="46" lean-forward="true" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+        <state relative-caret-position="362">
+          <caret line="247" column="78" lean-forward="false" selection-start-line="247" selection-start-column="78" selection-end-line="247" selection-end-column="78" />
           <folding />
         </state>
       </provider>
