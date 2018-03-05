@@ -24,8 +24,22 @@ world_map = {
 }
 
 current_node = world_map["WEST HOUSE"]
-print(current_node["NAME"])
-print(current_node["DESCRIPTION"])
-current_node = world_map["SOUTHHOUSE"]
-print(current_node["NAME"])
-print(current_node["DESCRIPTION"])
+directions = ['NORTH', 'SOUTH', 'EAST', 'WEST']
+
+while True:
+    print(current_node["NAME"])
+    print(current_node["DESCRIPTION"])
+    command = input('>_ ')
+    if command == 'quit':
+        quit(0)
+    if command in directions:
+        try:
+            name_of_code = current_node['PATHS'][command]
+            current_node = world_map[name_of_code]
+        except KeyError:
+            print("You cannot go that way.")
+    else:
+        print("Command not found.")
+    print()
+
+
