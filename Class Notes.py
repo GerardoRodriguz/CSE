@@ -5,8 +5,6 @@ class Cat(object):
         # Things that a Cat has
         self.color = color
         self.pattern = pattern
-        self.state = "happy"
-        self.hungry = False
 
     # Things that a Cat can do
     def jump(self):
@@ -63,4 +61,3 @@ my_car.turn_on()
 my_car.move_foward()
 my_car.turnOff()
 
-# notes
