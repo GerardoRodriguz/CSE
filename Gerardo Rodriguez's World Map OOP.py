@@ -17,17 +17,26 @@ class Room(******):
 
 # west_house = Room("West of House, 'north house")
 # north_house = Room("North of House", None)
-your_house = Room("YOUR HOUSE", None, "your_car_outside", "neighbors", None, None, None,
+your_house = Room("YOUR HOUSE", None, "your_car_outside", "jims_house_outside", None, None, None,
                   "Welcome, the day has come, the undead rule the world but, you can make a difference by finding a "
                   "cure. East is where your neighbors live, and South is your car, broken because of all the anarchy.")
-your_car_outside = Room("OUTSIDE OF CAR", "your_house", None, "joe's_burgers", None, "inside_of_car", None,
+your_car_outside = Room("OUTSIDE OF CAR", "your_house", "kates_house", "joe's_burgers", None, "inside_of_car", None,
                 "The door is open, missing its window, the engine is missing, which probably means everything inside "
                 "is stolen.")
 your_car_inside = Room("INSIDE OF CAR", None, None, None, None, None, "your_car_outside",
                        "Nothing much, just window shards, and a pen on what looks like to be your bloody car mat.")
-joes_burger_outside = Room("OUTSIDE JOE'S BURGERS", "neighbors", "parking_lot", None, "your_car_outside", None, None,
-                           "One of the best fast food place, Joe's Burgers with extra calories and fat.")
-neighbors = Room("YOUR NEIGHBORS INSIDE", )
+joes_burgers_outside = Room("OUTSIDE JOE'S BURGERS", "jims_house_outside", "parking_lot", None, "your_car_outside",
+                            "joes_burgers_inside", "joes_burgers_outside","One of the best fast food place, Joe's "
+                                                                          "Burgers with extra calories and fat.")
+joes_burgers_inside = Room("INSIDE JOE'S BURGERS", "cashier_back", None, None, "your_car_outside", None, None, "Wow. "
+                    "Tables are all flipped over and on the floor is mustard, ketchup, soda, and not sure if on the "
+                    "floor is blood but cannot notice because of all the condiments and soda. It is weird how this is "
+                                    "a burger place but there is no burgers on the floor or still standing tables...")
+cashier_back_joes_burgers = Room("CASHIER BACK", "parking_lot", joes_burgers_inside, None, None, None, "exit", "Shh... "
+                          "there is a mess full of raw meat, blood, and two weird human-like creatures. Why not "
+                          "say human? Mostly since they were all bloody, ripped clothes, and the fact they are eating "
+                                                                                  "frozen beef, chicken, and raw meat.")
+jims_house_outside = Room("OUTSIDE OF JIM'S HOUSE", None, "joes_burgers_outside", "your_house", "gas_stop", )
 
 current_node = Hazardine_City["YOUR HOUSE"]
 directions = ["north", "south", "east", "west", "inside", "outside"]
