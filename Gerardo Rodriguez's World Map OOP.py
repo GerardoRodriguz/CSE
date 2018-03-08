@@ -28,11 +28,12 @@ your_car_inside = Room("INSIDE OF CAR", None, None, None, None, None, "your_car_
 joes_burgers_outside = Room("OUTSIDE JOE'S BURGERS", "jims_house_outside", "parking_lot", None, "your_car_outside",
                             "joes_burgers_inside", "joes_burgers_outside","One of the best fast food place, Joe's "
                                                                           "Burgers with extra calories and fat.")
-joes_burgers_inside = Room("INSIDE JOE'S BURGERS", "cashier_back", None, None, "your_car_outside", None, None, "Wow. "
+joes_burgers_inside = Room("INSIDE JOE'S BURGERS", None, "cashier_back_joes_burgers", None, "your_car_outside", None,
+                           "joes_burgers_outside", "Wow. "
                     "Tables are all flipped over and on the floor is mustard, ketchup, soda, and not sure if on the "
                     "floor is blood but cannot notice because of all the condiments and soda. It is weird how this is "
                                     "a burger place but there is no burgers on the floor or still standing tables...")
-cashier_back_joes_burgers = Room("CASHIER BACK", "parking_lot", "joes_burgers_inside", None, None, None, "exit", "Shh... "
+cashier_back_joes_burgers = Room("CASHIER BACK", "joes_burgers_inside", "parking_lot", None, None, None, "parking_lot", "Shh... "
                           "there is a mess full of raw meat, blood, and two weird human-like creatures. Why not "
                           "say human? Mostly since they were all bloody, ripped clothes, and the fact they are eating "
                                                                                   "frozen beef, chicken, and raw meat.")
@@ -45,7 +46,10 @@ jims_house_inside = Room("INSIDE OF JIM'S HOUSE", "jims_bathroom", "jims_bedroom
                          "remains with the furniture. North is Jim's bathroom, South is Jim's bedroom, East is an "
                                        "exit, and another exit behind you.")
 
-jims_bathroom =
+jims_bathroom = Room("JIM'S BATHROOM", None, "jims_house_inside", None, None, None, "jims_house_inside", "Jim clearly "
+                     "does not clean his bathroom at all. But besides that, everything is gone except the toilet, "
+                                                                                                  "sink, and bathroom.")
+jims_bedroom = Room("JIM'S BEDROOM", "jims_house_inside",)
 current_node = your_house
 directions = ["north", "south", "east", "west", "inside", "outside"]
 short_directions = ["n", "s", "e", "w", "i", "o"]
