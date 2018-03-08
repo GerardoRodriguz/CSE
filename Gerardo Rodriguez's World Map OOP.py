@@ -1,4 +1,4 @@
-class Room(******):
+class Room(object):
     def __init__(self, name, north, south, east, west, inside, outside, description):
        self.name = name
        self.north = north
@@ -32,13 +32,21 @@ joes_burgers_inside = Room("INSIDE JOE'S BURGERS", "cashier_back", None, None, "
                     "Tables are all flipped over and on the floor is mustard, ketchup, soda, and not sure if on the "
                     "floor is blood but cannot notice because of all the condiments and soda. It is weird how this is "
                                     "a burger place but there is no burgers on the floor or still standing tables...")
-cashier_back_joes_burgers = Room("CASHIER BACK", "parking_lot", joes_burgers_inside, None, None, None, "exit", "Shh... "
+cashier_back_joes_burgers = Room("CASHIER BACK", "parking_lot", "joes_burgers_inside", None, None, None, "exit", "Shh... "
                           "there is a mess full of raw meat, blood, and two weird human-like creatures. Why not "
                           "say human? Mostly since they were all bloody, ripped clothes, and the fact they are eating "
                                                                                   "frozen beef, chicken, and raw meat.")
-jims_house_outside = Room("OUTSIDE OF JIM'S HOUSE", None, "joes_burgers_outside", "your_house", "gas_stop", )
+jims_house_outside = Room("OUTSIDE OF JIM'S HOUSE", None, "joes_burgers_outside", "your_house", "gas_stop",
+                          "jims_house_inside", None, "This is your neighbor's house, he was a quiet neighbor and to "
+                          "say the truth, he was creepy. His house looks all messed up because of anarchy and the "
+                                                     "door is wide open. Strange..." )
+jims_house_inside = Room("INSIDE OF JIM'S HOUSE", "jims_bathroom", "jims_bedroom", "gas_stop", "your_house", None,
+                         "your_house", "Looks like someone already looted the place, only a table with a missing leg "
+                         "remains with the furniture. North is Jim's bathroom, South is Jim's bedroom, East is an "
+                                       "exit, and another exit behind you.")
 
-current_node = Hazardine_City["YOUR HOUSE"]
+jims_bathroom =
+current_node = your_house
 directions = ["north", "south", "east", "west", "inside", "outside"]
 short_directions = ["n", "s", "e", "w", "i", "o"]
 
@@ -54,8 +62,8 @@ while True:
         command = directions[pos]
     if command in directions:
         try:
-            name_of_code = current_node['PATHS'][command]
-            current_node = Hazardine_City[name_of_code]
+            name_of_code = current_node["directions"][command]
+            current_node = your_house[name_of_code]
         except KeyError:
             print("You cannot go that way.")
     else:

@@ -23,6 +23,8 @@ class Character(object):
     def attack(self):
         if self.stamina:
             print("You kick the zombie and your stamina is now 60/100.")
+        else:
+            print()
 class Walker(object):
     def __init__(self, color, size, status, alerted, level):
        self.color = color
