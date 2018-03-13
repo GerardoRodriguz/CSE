@@ -13,18 +13,18 @@
 # Death
 # Stats
 class Character(object):
-    def __init__(self, size, stamina, level, inventory, health):
+    def __init__(self, size, attack_stamina, level, inventory, health):
         self.size = size
-        self.stamina = 100
+        self. attack_stamina = 100
         self.level = level
         self.inventory = inventory
         self.health = health
 
     def attack(self):
-        if self.stamina:
+        if self.attack_stamina:
             print("You kick the zombie and your stamina is now 60/100.")
         else:
-            print()
+            print("")
 class Walker(object):
     def __init__(self, color, size, status, alerted, level):
        self.color = color
@@ -50,4 +50,3 @@ class Walker(object):
             print("The Walker is no longer hostile.")
         else:
             print("The Walker seems to not notice.")
-

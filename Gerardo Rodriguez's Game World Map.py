@@ -54,7 +54,7 @@ while True:
     print(current_node["NAME"])
     print(current_node["DESCRIPTION"])
     command = input('>_ ')
-    if command == 'quit':
+    if command == "quit":
         quit(0)
     if command in directions:
         try:

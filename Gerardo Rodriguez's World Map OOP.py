@@ -33,10 +33,10 @@ joes_burgers_inside = Room("INSIDE JOE'S BURGERS", None, "cashier_back_joes_burg
                     "Tables are all flipped over and on the floor is mustard, ketchup, soda, and not sure if on the "
                     "floor is blood but cannot notice because of all the condiments and soda. It is weird how this is "
                                     "a burger place but there is no burgers on the floor or still standing tables...")
-cashier_back_joes_burgers = Room("CASHIER BACK", "joes_burgers_inside", "parking_lot", None, None, None, "parking_lot", "Shh... "
-                          "there is a mess full of raw meat, blood, and two weird human-like creatures. Why not "
-                          "say human? Mostly since they were all bloody, ripped clothes, and the fact they are eating "
-                                                                                  "frozen beef, chicken, and raw meat.")
+cashier_back_joes_burgers = Room("CASHIER BACK", "joes_burgers_inside", "parking_lot", None, None, None,
+                            "parking_lot", "Shh... there is a mess full of raw meat, blood, and two weird "
+                            "human-like creatures. Why not say human? Mostly since they were all bloody, "
+                            "ripped clothes, and the fact they are eating frozen beef, chicken, and raw meat.")
 jims_house_outside = Room("OUTSIDE OF JIM'S HOUSE", None, "joes_burgers_outside", "your_house", "gas_stop",
                           "jims_house_inside", None, "This is your neighbor's house, he was a quiet neighbor and to "
                           "say the truth, he was creepy. His house looks all messed up because of anarchy and the "
@@ -49,13 +49,51 @@ jims_house_inside = Room("INSIDE OF JIM'S HOUSE", "jims_bathroom", "jims_bedroom
 jims_bathroom = Room("JIM'S BATHROOM", None, "jims_house_inside", None, None, None, "jims_house_inside", "Jim clearly "
                      "does not clean his bathroom at all. But besides that, everything is gone except the toilet, "
                                                                                                   "sink, and bathroom.")
-jims_bedroom = Room("JIM'S BEDROOM", "jims_house_inside",)
+jims_bedroom = Room("JIM'S BEDROOM", "jims_house_inside", None, None, None, None, "jims_house_inside", "It looks like "
+                    "a massacre in here with all the bedsheets covered up in a blood and there seems to be a "
+                    "figure standing there just staring at a wall. I would recommend to leave.")
+kates_house_outside = Room("OUTSIDE KATE'S HOUSE", "your_car", None, "parking_lot", None, "kates_house_inside",
+                      None, "Kate, Kate, Kate, she was ex before al this and with all this happening, I wonder where "
+                      "she is. To shorten the history between you and your ex, you guys only separated because of "
+                            "the universities. You haven't had the guts to pass by her house at all...")
+kates_house_inside = Room("INSIDE KATE'S HOUSE", "kates_house_outside", "kates_basement", "parking_lot",
+                     "kates_kitchen", None, "kates_house_outside", "Well, considering the whole apocalypse, her house "
+                     "is looking decent and mostly everything is in place. There seems to be some stairs leading "
+                     "down South, East is a door exit, and West is Kate's kitchen. I keep getting a strange "
+                                                                   "feeling someone is in this house...")
+kates_basement = Room("KATE'S BASEMENT", "kates_house_inside", None, None, None, None, "kates_basement", "You see "
+                 "very little but you can see visible a gleaming metal object being holed by a person, That "
+                                                                "gleaming metal is a KNIFE. This is creepy.")
+kates_kitchen = Room("KATE'S KITCHEN", None, None, "kates_house_inside", None, None, "kates_house_inside",
+                "Nevermind, looks like the house isn't alone after all if you consider a creature eating raw meat from "
+                "a fridge. Slowly move out of this room. You know, if you want to live.")
+gas_stop_outside = Room("OUTSIDE GAS STOP", None, "mall_outside", None, "jims_house_outside", "gas_stop_inside", None,
+                   "If you had a vehicle with low gas, this would be the perfect place to go to but for a snack, not "
+                                "so much if you consider blood dripping from the main entrance.")
+gas_stop_inside = Room("INSIDE GAS STOP", None, "mall_outside", None, "gas_stop_outside", None, "gas_stop_outside",
+                       "The aisles are all empty and there is a weird grunting sound coming from the left aisle. Maybe "
+                                                                    "turn South to the exit to a store, I think.")
+mall_outside = Room("OUTSIDE OF MALL", "gas_stop_outside", None, None, "parking_lot", "mall_inside", None, "Oh "
+               "crude, this is a mall. Probably the worst place to go to in a zombie apocalypse and has been proven "
+               "in many theories. You should be very quiet if you enter you know, if you want...we don't have to "
+                                                                                                           "go right?")
+mall_inside = Room("INSIDE OF MALL", "malls_shoe_store", None, "malls_food_court", "mall_outside", None,
+              "mall_outside", "Ok, be carefull where you step and how you step, don't attract to much attention "
+              "to yourself. North is the shoes store, South seems to be locked and unavailable, and East is the "
+                              "breeding ground of these creatures, the food court.")
+malls_shoe_store = Room("MALL'S SHOE STORE", None, "mall_inside", None, None, None, "mall_inside", "Even though "
+                   "those Jordans look really fresh, maybe stick to your shoes because those your wearing look way "
+                                            "less bulkier than those fresh Jordans. Just saying.")
+mall_food_court = Room("MALL FOOD COURT", None, None, None, "mall_inside", None, "mall_inside", "Eyes are looking "
+                                                "right at you, like dozens. Leave now beacause I really enjoy life.")
+parking_lot = Room("PARKING LOT", "cashier_back_joes_burgers", None, "mall_outside", "kates_house_outside", None,
+                   None, "Just any normal parking lot, empty and blood and guts on the floor.")
 current_node = your_house
 directions = ["north", "south", "east", "west", "inside", "outside"]
 short_directions = ["n", "s", "e", "w", "i", "o"]
 
 while True:
-    print(current_node["NAME"])
+    print(current_node["your_house"])
     print(current_node["DESCRIPTION"])
     command = input('>_ ').lower().strip()
     if command == 'quit':
