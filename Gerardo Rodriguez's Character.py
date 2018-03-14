@@ -12,19 +12,32 @@
 # Take Damage
 # Death
 # Stats
+
+
 class Character(object):
-    def __init__(self, size, attack_stamina, level, inventory, health):
-        self.size = size
-        self. attack_stamina = 100
-        self.level = level
+    def __init__(self, takeDamage, stamina, fight, inventory, health):
+        self.takeDamage = takeDamage
+        self.stamina = 100
+        self.fight = fight
         self.inventory = inventory
-        self.health = health
+        self.health = 100
 
     def attack(self):
-        if self.attack_stamina:
-            print("You kick the zombie and your stamina is now 60/100.")
+        if self.stamina >= 10:
+            print("You kick the zombie.")
+            self.stamina -= 10
         else:
-            print("")
+            print("You should run.")
+
+    def block(self):
+        if self.health >= 20:
+            print("You block but you can feel the pain.")
+            self.health -= 20
+        else:
+            print("You should run.")
+
+    def backpackSpace(self):
+        if self.inventory
 class Walker(object):
     def __init__(self, color, size, status, alerted, level):
        self.color = color
@@ -35,6 +48,7 @@ class Walker(object):
 
     def alert(self):
         if self.alerted:
+            self.alerted = False
             print("The Walker seems to not notice.")
         else:
             print("The Walker is now alert.")
