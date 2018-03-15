@@ -64,4 +64,4 @@ class Walker(object):
             print("The Walker seems to not notice.")
 
 
-walker = Walker("color", )
+walker = Walker("color", "")
