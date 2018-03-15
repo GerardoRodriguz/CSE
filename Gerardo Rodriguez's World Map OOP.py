@@ -85,7 +85,7 @@ malls_shoe_store = Room("MALL'S SHOE STORE", None, "mall_inside", None, None, No
                    "those Jordans look really fresh, maybe stick to your shoes because those your wearing look way "
                                             "less bulkier than those fresh Jordans. Just saying.")
 mall_food_court = Room("MALL FOOD COURT", None, None, None, "mall_inside", None, "mall_inside", "Eyes are looking "
-                                                "right at you, like dozens. Leave now beacause I really enjoy life.")
+                                                "right at you, like dozens. Leave now because I really enjoy life.")
 parking_lot = Room("PARKING LOT", "cashier_back_joes_burgers", None, "mall_outside", "kates_house_outside", None,
                    None, "Just any normal parking lot, empty and blood and guts on the floor.")
 current_node = your_house
