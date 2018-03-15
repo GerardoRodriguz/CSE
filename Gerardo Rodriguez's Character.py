@@ -36,8 +36,6 @@ class Character(object):
         else:
             print("You should run.")
 
-    def backpackSpace(self):
-        if self.inventory
 class Walker(object):
     def __init__(self, color, size, status, alerted, level):
        self.color = color
