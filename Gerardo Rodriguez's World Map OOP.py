@@ -17,6 +17,7 @@ class Room(object):
 
 # west_house = Room("West of House, 'north house")
 # north_house = Room("North of House", None)
+
 your_house = Room("YOUR HOUSE", None, "your_car_outside", "jims_house_outside", None, None, None,
                   "Welcome, the day has come, the undead rule the world but, you can make a difference by finding a "
                   "cure. East is where your neighbors live, and South is your car, broken because of all the anarchy.")
