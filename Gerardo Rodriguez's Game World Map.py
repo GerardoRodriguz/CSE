@@ -39,23 +39,26 @@ Hazardine_City = {
     },
     "JIMS_HOUSE_OUTSIDE": {
         "NAME": "OUTSIDE JIM'S HOUSE",
-        "DESCRIPTION": "",
+        "DESCRIPTION": "This is your neighbor's house, he was a quiet neighbor and to "
+                          "say the truth, he was creepy. His house looks all messed up because of anarchy and the "
+                                "door is wide open. Strange...",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
-            "INSIDE": "",
-            "OUTSIDE": ""
+            "SOUTH": "JOES_BURGERS_OUTSIDE",
+            "EAST": "YOUR_HOUSE",
+            "WEST": "GAS_STOP_OUTSIDE",
+            "INSIDE": "JIMS_HOUSE_INSIDE",
+
         }
     },
     "JIMS_HOUSE_INSIDE": {
-        "NAME": "",
-        "DESCRIPTION": "",
+        "NAME": "INSIDE JIM'S HOUSE",
+        "DESCRIPTION": "Looks like someone already looted the place, only a table with a missing leg "
+                         "remains with the furniture. North is Jim's bathroom, South is Jim's bedroom, East is an "
+                                       "exit, and another exit behind you.",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
+            "NORTH": "JIMS_BATHROOM",
+            "SOUTH": "JIMS_BEDROOM",
+            "EAST": "GAS_STOP_OUTSIDE",
             "WEST": "",
             "INSIDE": "",
             "OUTSIDE": ""
