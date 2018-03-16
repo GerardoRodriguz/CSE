@@ -15,8 +15,8 @@
 
 
 class Character(object):
-    def __init__(self, take_damage, stamina, fight, inventory, health):
-        self.takeDamage = take_damage
+    def __init__(self, takeDamage, stamina, fight, inventory, health):
+        self.takeDamage = takeDamage
         self.stamina = 100
         self.fight = fight
         self.inventory = inventory
@@ -35,8 +35,6 @@ class Character(object):
             self.health -= 20
         else:
             print("You should run.")
-
-character = Character("take_damage", "stamina", "fight", "inventory", "health")
 
 class Walker(object):
     def __init__(self, color, size, status, alerted, level):
@@ -64,5 +62,3 @@ class Walker(object):
             print("The Walker is no longer hostile.")
         else:
             print("The Walker seems to not notice.")
-
-walker = Walker("color", "size", "status", "alerted", "level")
