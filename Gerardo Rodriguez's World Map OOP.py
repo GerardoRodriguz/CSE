@@ -93,8 +93,8 @@ directions = ["north", "south", "east", "west", "inside", "outside"]
 short_directions = ["n", "s", "e", "w", "i", "o"]
 
 while True:
-    print(current_node["your_house"])
-    print(current_node["DESCRIPTION"])
+    print(current_node.name)
+    print(current_node.description)
     command = input('>_ ').lower().strip()
     if command == 'quit':
         quit(0)
@@ -104,8 +104,7 @@ while True:
         command = directions[pos]
     if command in directions:
         try:
-            name_of_code = current_node["directions"][command]
-            current_node = your_house[name_of_code]
+            current_node.move(command)
         except KeyError:
             print("You cannot go that way.")
     else:

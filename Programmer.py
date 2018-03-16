@@ -29,5 +29,5 @@ class Programmer(Employee):
 
     def job_work(self):
         print("The work is %s." % self.code)
-        
+
 programmer = Programmer("code")
