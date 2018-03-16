@@ -10,6 +10,8 @@ class Person(object):
     def school(self):
         print("His degree was a %s." % self.education)
 
+person = Person("name", "education")
+
 class Employee(Person):
     def __init__(self, job):
         super(Employee, self).__init__(job)
@@ -18,6 +20,7 @@ class Employee(Person):
     def salary(self):
         print("The job, %s, is $20 per hour." % self.job)
 
+employee = Employee("job")
 
 class Programmer(Employee):
     def __init__(self, code):
@@ -26,3 +29,5 @@ class Programmer(Employee):
 
     def job_work(self):
         print("The work is %s." % self.code)
+        
+programmer = Programmer("code")
