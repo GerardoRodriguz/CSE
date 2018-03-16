@@ -41,7 +41,8 @@ jims_house_outside = Room("OUTSIDE OF JIM'S HOUSE", None, "joes_burgers_outside"
                           "jims_house_inside", None, "This is your neighbor's house, he was a quiet neighbor and to "
                           "say the truth, he was creepy. His house looks all messed up because of anarchy and the "
                                                      "door is wide open. Strange..." )
-jims_house_inside = Room("INSIDE OF JIM'S HOUSE", "jims_bathroom", "jims_bedroom", "gas_stop_outside", "your_house", None,
+jims_house_inside = Room("INSIDE OF JIM'S HOUSE", "jims_bathroom", "jims_bedroom", "gas_stop_outside",
+                         "your_house", None,
                          "your_house", "Looks like someone already looted the place, only a table with a missing leg "
                          "remains with the furniture. North is Jim's bathroom, South is Jim's bedroom, East is an "
                                        "exit, and another exit behind you.")
@@ -62,8 +63,7 @@ kates_house_inside = Room("INSIDE KATE'S HOUSE", "kates_house_outside", "kates_b
                      "down South, East is a door exit, and West is Kate's kitchen. I keep getting a strange "
                                                                    "feeling someone is in this house...")
 kates_basement = Room("KATE'S BASEMENT", "kates_house_inside", None, None, None, None, "kates_basement", "You see "
-                 "very little but you can see visible a gleaming metal object being holed by a person, That "
-                                                                "gleaming metal is a KNIFE. This is creepy.")
+                 "very little but you can see visible a creature, this is creepy.")
 kates_kitchen = Room("KATE'S KITCHEN", None, None, "kates_house_inside", None, None, "kates_house_inside",
                 "Nevermind, looks like the house isn't alone after all if you consider a creature eating raw meat from "
                 "a fridge. Slowly move out of this room. You know, if you want to live.")
@@ -85,7 +85,7 @@ malls_shoe_store = Room("MALL'S SHOE STORE", None, "mall_inside", None, None, No
                    "those Jordans look really fresh, maybe stick to your shoes because those your wearing look way "
                                             "less bulkier than those fresh Jordans. Just saying.")
 mall_food_court = Room("MALL FOOD COURT", None, None, None, "mall_inside", None, "mall_inside", "Eyes are looking "
-                                                "right at you, like dozens. Leave now beacause I really enjoy life.")
+                                                "right at you, like dozens. Leave now because I really enjoy life.")
 parking_lot = Room("PARKING LOT", "cashier_back_joes_burgers", None, "mall_outside", "kates_house_outside", None,
                    None, "Just any normal parking lot, empty and blood and guts on the floor.")
 current_node = your_house
