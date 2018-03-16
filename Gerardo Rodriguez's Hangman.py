@@ -9,21 +9,26 @@ Outline of Hangman
 
 """
 
-letter = ("a", "b", "c", "d", "e", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
-          "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
-          "U", "V", "W", "X", "Y", "Z")
-letters_guessed = []
-words = ["Smoke", "Thermite", "Jackal", "Valkyrie", "IQ", "Rook", "Sledge", "Bandit", "Twitch", "Blitz"]
-guesses = 0-8
-Rainbow_Six_Siege = (random.choice(words))
+rainbow_six_operators = ["Thermite", "Bliz", "Valkarie", "Doc", "Smoke", "Thacher", "Ela", "Lion", "Finka", "Bandit"]
 
+guesses_left = 10
+word = random.choice(Fav_Streamers)
+letters_guessed = list(string.punctuation + " ")
 
-while str(letter) != letter and words:
-    guess = input("What is your guess?")
-    if letter != words:
-        print("Wrong")
-    if letter == words:
-        print("Correct!")
-    if guesses >= 0-8:
-        print("Hangman was made.")
-print(letters_guessed)
+output = []
+while guesses_left > 0 and "".join(output) != word:
+    output = []
+    for letter in word:
+        if letter.lower() in letters_guessed:
+            output.append(letter)
+        else:
+            output.append("^")
+    print("".join(output))
+    if "".join(output) == word:
+        print("Nice.")
+        continue
+    guess = input("Pick a letter.").lower()
+    letters_guessed.append(guess)
+    if guess not in word.lower():
+        guesses_left -= 1
+        print("You have %d guesses left" % guesses_left)
