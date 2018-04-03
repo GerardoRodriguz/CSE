@@ -9,6 +9,7 @@ Outline of Hangman
 
 """
 
+<<<<<<< HEAD
 import random
 """
 Outline of Hangman
@@ -20,6 +21,8 @@ Outline of Hangman
 
 """
 
+=======
+>>>>>>> 27668ec74aee2fe5b78844fac48a3b9ca64aa80d
 rainbow_six_operators = ["Thermite", "Bliz", "Valkarie", "Doc", "Smoke", "Thacher", "Ela", "Lion", "Finka", "Bandit"]
 
 guesses_left = 10

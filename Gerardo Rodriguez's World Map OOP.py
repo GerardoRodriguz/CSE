@@ -17,6 +17,7 @@ class Room(object):
 
 # west_house = Room("West of House, 'north house")
 # north_house = Room("North of House", None)
+
 your_house = Room("YOUR HOUSE", None, "your_car_outside", "jims_house_outside", None, None, None,
                   "Welcome, the day has come, the undead rule the world but, you can make a difference by finding a "
                   "cure. East is where your neighbors live, and South is your car, broken because of all the anarchy.")
@@ -37,11 +38,12 @@ cashier_back_joes_burgers = Room("CASHIER BACK", "joes_burgers_inside", "parking
                             "parking_lot", "Shh... there is a mess full of raw meat, blood, and two weird "
                             "human-like creatures. Why not say human? Mostly since they were all bloody, "
                             "ripped clothes, and the fact they are eating frozen beef, chicken, and raw meat.")
-jims_house_outside = Room("OUTSIDE OF JIM'S HOUSE", None, "joes_burgers_outside", "your_house", "gas_stop",
+jims_house_outside = Room("OUTSIDE OF JIM'S HOUSE", None, "joes_burgers_outside", "your_house", "gas_stop_outside",
                           "jims_house_inside", None, "This is your neighbor's house, he was a quiet neighbor and to "
                           "say the truth, he was creepy. His house looks all messed up because of anarchy and the "
                                                      "door is wide open. Strange..." )
-jims_house_inside = Room("INSIDE OF JIM'S HOUSE", "jims_bathroom", "jims_bedroom", "gas_stop", "your_house", None,
+jims_house_inside = Room("INSIDE OF JIM'S HOUSE", "jims_bathroom", "jims_bedroom", "gas_stop_outside",
+                         "your_house", None,
                          "your_house", "Looks like someone already looted the place, only a table with a missing leg "
                          "remains with the furniture. North is Jim's bathroom, South is Jim's bedroom, East is an "
                                        "exit, and another exit behind you.")
@@ -62,8 +64,7 @@ kates_house_inside = Room("INSIDE KATE'S HOUSE", "kates_house_outside", "kates_b
                      "down South, East is a door exit, and West is Kate's kitchen. I keep getting a strange "
                                                                    "feeling someone is in this house...")
 kates_basement = Room("KATE'S BASEMENT", "kates_house_inside", None, None, None, None, "kates_basement", "You see "
-                 "very little but you can see visible a gleaming metal object being holed by a person, That "
-                                                                "gleaming metal is a KNIFE. This is creepy.")
+                 "very little but you can see visible a creature, this is creepy.")
 kates_kitchen = Room("KATE'S KITCHEN", None, None, "kates_house_inside", None, None, "kates_house_inside",
                 "Nevermind, looks like the house isn't alone after all if you consider a creature eating raw meat from "
                 "a fridge. Slowly move out of this room. You know, if you want to live.")
@@ -93,8 +94,8 @@ directions = ["north", "south", "east", "west", "inside", "outside"]
 short_directions = ["n", "s", "e", "w", "i", "o"]
 
 while True:
-    print(current_node["your_house"])
-    print(current_node["DESCRIPTION"])
+    print(current_node.name)
+    print(current_node.description)
     command = input('>_ ').lower().strip()
     if command == 'quit':
         quit(0)
@@ -104,8 +105,7 @@ while True:
         command = directions[pos]
     if command in directions:
         try:
-            name_of_code = current_node["directions"][command]
-            current_node = your_house[name_of_code]
+            current_node.move(command)
         except KeyError:
             print("You cannot go that way.")
     else:
