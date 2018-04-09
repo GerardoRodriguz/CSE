@@ -39,12 +39,14 @@ class Character(object):
 character = Character("take_damage", "stamina", "fight", "inventory", "health")
 
 class Walker(object):
-    def __init__(self, color, size, status, alerted, level):
+    def __init__(self, color, size, status, alerted, level, damage, attack):
        self.color = color
        self.size = size
        self.status = status
        self.alerted = False
        self.level = level
+       self.damage = 40
+       self.attack = attack
 
     def alert(self):
         if self.alerted:
@@ -64,5 +66,10 @@ class Walker(object):
             print("The Walker is no longer hostile.")
         else:
             print("The Walker seems to not notice.")
+    def AttackDamage(self):
+        if self.attack:
+            self.damage -= 40
+            print("You have been attacked by the Walker, you should run.")
 
-walker = Walker("color", "size", "status", "alerted", "level")
+
+walker = Walker("color", "size", "status", "alerted", "level", "damage", "attack")
