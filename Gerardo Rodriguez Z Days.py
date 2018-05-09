@@ -1,3 +1,5 @@
+import random
+
 # import statements (you may not have any)
 # class definitions
 # items
@@ -114,29 +116,37 @@ class Character(object):
         if self.stamina >= 10:
             print("You kick the zombie.")
             self.stamina -= 10
-        else:
+
+        if self.stamina <= 60:
             print("You should run.")
+
+        if self.health <= 60:
+            print("You should run.")
+
 
     def block(self):
         if self.health >= 20:
             print("You block but you can feel the pain.")
             self.health -= 20
-        else:
+
+        if self.health <= 60:
+            print("You should run.")
+
+        if self.stamina <= 60:
             print("You should run.")
 
 
 character = Character("take_damage", "stamina", "fight", "inventory", "health")
 
 
-class Walker(object):
-    def __init__(self, size, status, alerted, level, damage, attack):
+class Walker(Character):
+    def __init__(self,  take_damage, stamina, fight, inventory, health, alerted, level, damage, attack):
+        super(Walker, self).__init__( take_damage, stamina, fight, inventory, health)
+        self.alerted = False
+        self.level = 1
+        self.damage = 40
+        self.attack = attack
 
-       self.size = size
-       self.status = status
-       self.alerted = False
-       self.level = 1
-       self.damage = 40
-       self.attack = attack
 
     def alert(self):
         if self.alerted:
@@ -164,18 +174,19 @@ class Walker(object):
             self.damage -= 40
             print("You have been attacked by the Walker, you should run.")
 
-    def height(self):
-        if self.size:
-            self.size = False
-            print("The Walker is normal but still deadly.")
-        else
 
     def strength(self):
-        if self.level:
-            self.level = 1
-            print("The Walker")
+        if self.level == 1:
+            self.damage = 40
+            self.health = 100
 
+        elif self.level == 2:
+            self.damage = 50
+            self.health = 110
 
+        elif self.level == 3:
+            self.damage = 60
+            self.health = 120
 
 
 
