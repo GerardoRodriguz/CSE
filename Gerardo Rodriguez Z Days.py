@@ -163,7 +163,7 @@ character = Character("take_damage", "stamina", "fight", "inventory", "health", 
 
 class Walker(Character):
     def __init__(self,  take_damage, stamina, fight, inventory, health, alerted, level, damage, attack):
-        super(Walker, self).__init__(take_damage, stamina, fight, inventory, health)
+        super(Walker, self).__init__(take_damage, stamina, fight, inventory, health, damage)
         self.alerted = False
         self.level = level
         self.damage = damage
@@ -221,44 +221,40 @@ class Item(object):
 class Healing(Item):
     def __init__(self, name, description, use, heal):
         super(Healing, self).__init__(name, description, use, heal)
-        self.name = name
-        self.description = description
-        self.use = use
-        self.heal = heal
 
-        def heal(self):
-            if Burger or Soda or Enchancer in inventory1:
-                self.heal += Character.health
+    def heal(self):
+        if Burger or Soda or Enhancer in inventory1:
+            self.heal += Character.health
 
 
 class Burger(Healing):
     def __init__(self, name, description, use, heal):
         super(Burger, self).__init__(name, description, use, heal)
 
-        def heal(self):
-            if Burger in inventory1:
-                print("I would suggest to eat this delicious burger even though I doubt you have an appetite.")
-                self.heal += Character.health
+    def heal(self):
+        if Burger in inventory1:
+            print("I would suggest to eat this delicious burger even though I doubt you have an appetite.")
+            self.heal += Character.health
 
 
 class Soda(Healing):
     def __init__(self, name, description, use, heal):
         super(Soda, self).__init__(name, description, use, heal)
 
-        def heal(self):
-            if Soda in inventory1:
-                print("Nothing better than a nice soda.")
-                self.heal += Character.health
+    def heal(self):
+        if Soda in inventory1:
+            print("Nothing better than a nice soda.")
+            self.heal += Character.health
 
 
-class Enchancer(Healing):
+class Enhancer(Healing):
     def __init__(self, name, description, use, heal):
-        super(Enchancer, self).__init__(name, description, use, heal)
+        super(Enhancer, self).__init__(name, description, use, heal)
 
-        def heal(self):
-            if Enchancer in inventory1:
-                print("This bad boy can heal or add extra health.")
-                self.heal += Character.health
+    def heal(self):
+        if Enhancer in inventory1:
+            print("This bad boy can heal or add extra health.")
+            self.heal += Character.health
 
 
 class Armour(Item):
@@ -269,9 +265,9 @@ class Armour(Item):
         self.use = use
         self.durability = durability
 
-        def protection(self):
-            if Mask or ChestPlate or IronFists in inventory1:
-                self.durability += Character.health
+    def protection(self):
+        if Mask or ChestPlate or IronFists in inventory1:
+            self.durability += Character.health
 
 
 class Mask(Armour):
@@ -282,9 +278,9 @@ class Mask(Armour):
         self.use = use
         self.durability = durability
 
-        def protection(self):
-            if Mask in inventory1:
-                self.durability += Character.health
+    def protection(self):
+        if Mask in inventory1:
+            self.durability += Character.health
 
 
 class ChestPlate(Armour):
@@ -295,9 +291,9 @@ class ChestPlate(Armour):
         self.use = use
         self.durability = durability
 
-        def protection(self):
-            if ChestPlate in inventory1:
-                self.durability += Character.health
+    def protection(self):
+        if ChestPlate in inventory1:
+            self.durability += Character.health
 
 
 class IronFists(Armour):
@@ -308,9 +304,9 @@ class IronFists(Armour):
         self.use = use
         self.durability = durability
 
-        def protection(self):
-            if IronFists in inventory1:
-                self.durability += Character.health
+    def protection(self):
+        if IronFists in inventory1:
+            self.durability += Character.health
 
 
 class Weapon(Item):
@@ -321,9 +317,9 @@ class Weapon(Item):
         self.use = use
         self.damage = damage
 
-        def damage(self):
-            if Pistol or Shotgun or SMG or M14 or AK12 or Knife or Baseball_Bat in inventory1:
-                self.damage += Character.damage
+    def damage(self):
+        if Pistol or Shotgun or SMG or M14 or AK12 or Knife or BaseballBat in inventory1:
+            self.damage += Character.damage
 
 
 class Pistol(Item):
@@ -334,9 +330,9 @@ class Pistol(Item):
         self.use = use
         self.damage = damage
 
-        def Damage(self):
-            if Pistol in inventory1:
-                self.damage += Character.damage
+    def Damage(self):
+        if Pistol in inventory1:
+            self.damage += Character.damage
 
 
 class Shotgun(Item):
@@ -347,9 +343,9 @@ class Shotgun(Item):
         self.use = use
         self.damage = damage
 
-        def Damage(self):
-            if Shotgun in inventory1:
-                self.damage += Character.damage
+    def Damage(self):
+        if Shotgun in inventory1:
+            self.damage += Character.damage
 
 
 class SMG(Item):
@@ -360,9 +356,9 @@ class SMG(Item):
         self.use = use
         self.damage = damage
 
-        def Damage(self):
-            if SMG in inventory1:
-                self.damage += Character.damage
+    def Damage(self):
+        if SMG in inventory1:
+            self.damage += Character.damage
 
 
 class M14(Item):
@@ -373,9 +369,9 @@ class M14(Item):
         self.use = use
         self.damage = damage
 
-        def Damage(self):
-            if M14 in inventory1:
-                self.damage += Character.damage
+    def Damage(self):
+        if M14 in inventory1:
+            self.damage += Character.damage
 
 
 class AK12(Item):
@@ -386,9 +382,9 @@ class AK12(Item):
         self.use = use
         self.damage = damage
 
-        def Damage(self):
-            if AK12 in inventory1:
-                self.damage += Character.damage
+    def Damage(self):
+        if AK12 in inventory1:
+            self.damage += Character.damage
 
 
 class Knife(Item):
@@ -399,9 +395,9 @@ class Knife(Item):
         self.use = use
         self.damage = damage
 
-        def Damage(self):
-            if Knife in inventory1:
-                self.damage += Character.damage
+    def damage(self):
+        if Knife in inventory1:
+             self.damage += Character.damage
 
 
 class BaseballBat(Item):
@@ -412,10 +408,9 @@ class BaseballBat(Item):
         self.use = use
         self.damage = damage
 
-        def Damage(self):
-            if BaseballBat in inventory1:
-                self.damage += Character.damage
-
+    def Damage(self):
+         if BaseballBat in inventory1:
+            self.damage += Character.damage
 
 
 while True:
@@ -426,7 +421,7 @@ while True:
         quit(0)
     elif command in short_directions:
         # Finds the command in short directions (index number)
-        pos  = short_directions.index(command)
+        pos = short_directions.index(command)
         command = directions[pos]
     if command in directions:
         try:
@@ -436,5 +431,3 @@ while True:
     else:
         print("Command not found.")
     print()
-
-
