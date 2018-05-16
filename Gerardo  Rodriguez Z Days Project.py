@@ -19,8 +19,8 @@ class Healing(Item):
 
 
 class Burger(Healing):
-    def __init__(self, name, description, use, heal):
-        super(Burger, self).__init__(name, description, use, heal)
+    def __init__(self, name, description, heal):
+        super(Burger, self).__init__(name, description, "use", heal)
 
     def heal(self):
         if Burger in inventory1:
@@ -29,8 +29,8 @@ class Burger(Healing):
 
 
 class Soda(Healing):
-    def __init__(self, name, description, use, heal):
-        super(Soda, self).__init__(name, description, use, heal)
+    def __init__(self, name, description, heal):
+        super(Soda, self).__init__(name, description, 'use', heal)
 
     def heal(self):
         if Soda in inventory1:
@@ -39,21 +39,18 @@ class Soda(Healing):
 
 
 class Enhancer(Healing):
-    def __init__(self, name, description, use, heal):
-        super(Enhancer, self).__init__(name, description, use, heal)
+    def __init__(self, name, description, heal):
+        super(Enhancer, self).__init__(name, description, 'use', heal)
 
     def heal(self):
         if Enhancer in inventory1:
-            print("This bad boy can heal or add extra health.")
+            print("Would save it but...")
             self.heal += MainCharacter.health
 
 
 class Armour(Item):
     def __init__(self, name, description, use, durability):
-        super(Armour, self).__init__(name, description, use, durability)
-        self.name = name
-        self.description = description
-        self.use = use
+        super(Armour, self).__init__(name, description, use)
         self.durability = durability
 
     def protection(self):
@@ -62,12 +59,8 @@ class Armour(Item):
 
 
 class Mask(Armour):
-    def __init__(self, name, description, use, durability):
-        super(Armour, self).__init__(name, description, use, durability)
-        self.name = name
-        self.description = description
-        self.use = use
-        self.durability = durability
+    def __init__(self, name, description, durability):
+        super(Mask, self).__init__(name, description, 'use', durability)
 
     def protection(self):
         if Mask in inventory1:
@@ -75,12 +68,8 @@ class Mask(Armour):
 
 
 class ChestPlate(Armour):
-    def __init__(self, name, description, use, durability):
-        super(Armour, self).__init__(name, description, use, durability)
-        self.name = name
-        self.description = description
-        self.use = use
-        self.durability = durability
+    def __init__(self, name, description, durability):
+        super(ChestPlate, self).__init__(name, description, 'use', durability)
 
     def protection(self):
         if ChestPlate in inventory1:
@@ -88,12 +77,8 @@ class ChestPlate(Armour):
 
 
 class IronFists(Armour):
-    def __init__(self, name, description, use, durability):
-        super(Armour, self).__init__(name, description, use, durability)
-        self.name = name
-        self.description = description
-        self.use = use
-        self.durability = durability
+    def __init__(self, name, description, durability):
+        super(IronFists, self).__init__(name, description, 'use', durability)
 
     def protection(self):
         if IronFists in inventory1:
@@ -102,10 +87,7 @@ class IronFists(Armour):
 
 class Weapon(Item):
     def __init__(self, name, description, use, damage):
-        super(Weapon, self).__init__(name, description, use, damage)
-        self.name = name
-        self.description = description
-        self.use = use
+        super(Weapon, self).__init__(name, description, use)
         self.damage = damage
 
     def damage(self):
@@ -113,94 +95,66 @@ class Weapon(Item):
             self.damage += MainCharacter.damage
 
 
-class Pistol(Item):
-    def __init__(self, name, description, use, damage):
-        super(Pistol, self).__init__(name, description, use, damage)
-        self.name = name
-        self.description = description
-        self.use = use
-        self.damage = damage
+class Pistol(Weapon):
+    def __init__(self, name, description, damage):
+        super(Pistol, self).__init__(name, description, 'use', damage)
 
-    def Damage(self):
+    def damage(self):
         if Pistol in inventory1:
             self.damage += MainCharacter.damage
 
 
-class Shotgun(Item):
-    def __init__(self, name, description, use, damage):
-        super(Shotgun, self).__init__(name, description, use, damage)
-        self.name = name
-        self.description = description
-        self.use = use
-        self.damage = damage
+class Shotgun(Weapon):
+    def __init__(self, name, description, damage):
+        super(Shotgun, self).__init__(name, description, 'use', damage)
 
-    def Damage(self):
+    def damage(self):
         if Shotgun in inventory1:
             self.damage += MainCharacter.damage
 
 
-class SMG(Item):
-    def __init__(self, name, description, use, damage):
-        super(SMG, self).__init__(name, description, use, damage)
-        self.name = name
-        self.description = description
-        self.use = use
-        self.damage = damage
+class SMG(Weapon):
+    def __init__(self, name, description, damage):
+        super(SMG, self).__init__(name, description, 'use', damage)
 
-    def Damage(self):
+    def damage(self):
         if SMG in inventory1:
             self.damage += MainCharacter.damage
 
 
-class M14(Item):
-    def __init__(self, name, description, use, damage):
-        super(M14, self).__init__(name, description, use, damage)
-        self.name = name
-        self.description = description
-        self.use = use
-        self.damage = damage
+class M14(Weapon):
+    def __init__(self, name, description, damage):
+        super(M14, self).__init__(name, description, 'use', damage)
 
-    def Damage(self):
+    def damage(self):
         if M14 in inventory1:
             self.damage += MainCharacter.damage
 
 
-class AK12(Item):
-    def __init__(self, name, description, use, damage):
-        super(AK12, self).__init__(name, description, use, damage)
-        self.name = name
-        self.description = description
-        self.use = use
-        self.damage = damage
+class AK12(Weapon):
+    def __init__(self, name, description, damage):
+        super(AK12, self).__init__(name, description, 'use', damage)
 
-    def Damage(self):
+    def damage(self):
         if AK12 in inventory1:
             self.damage += MainCharacter.damage
 
 
-class Knife(Item):
-    def __init__(self, name, description, use, damage):
-        super(Knife, self).__init__(name, description, use, damage)
-        self.name = name
-        self.description = description
-        self.use = use
-        self.damage = damage
+class Knife(Weapon):
+    def __init__(self, name, description, damage):
+        super(Knife, self).__init__(name, description, 'use', damage)
 
     def damage(self):
         if Knife in inventory1:
-             self.damage += MainCharacter.damage
+            self.damage += MainCharacter.damage
 
 
-class BaseballBat(Item):
-    def __init__(self, name, description, use, damage):
-        super(BaseballBat, self).__init__(name, description, use, damage)
-        self.name = name
-        self.description = description
-        self.use = use
-        self.damage = damage
+class BaseballBat(Weapon):
+    def __init__(self, name, description, damage):
+        super(BaseballBat, self).__init__(name, description, 'use', damage)
 
-    def Damage(self):
-         if BaseballBat in inventory1:
+    def damage(self):
+        if BaseballBat in inventory1:
             self.damage += MainCharacter.damage
 
 
@@ -240,34 +194,12 @@ character = Character("take_damage", "stamina", "fight", "inventory", "health", 
 
 
 class Walker(Character):
-    def __init__(self,  take_damage, stamina, fight, inventory, health, alerted, level, damage, attack):
+    def __init__(self,  take_damage, stamina, fight, inventory, health, level, damage, attack):
         super(Walker, self).__init__(take_damage, stamina, fight, inventory, health, damage)
-        self.alerted = False
         self.level = level
         self.damage = damage
         self.attack = attack
         self.health = health
-
-    def alert(self):
-        if self.alerted:
-            self.alerted = False
-            print("The Walker seems to not notice.")
-        else:
-            print("The Walker is now alert.")
-            self.alert = True
-
-    def hostility(self):
-        if self.alerted:
-            print("The Walker attacks.")
-        else:
-            print("The Walker seems to not notice.")
-
-    def no_longer_notice(self):
-        if self.alert:
-            self.alert = False
-            print("The Walker is no longer hostile.")
-        else:
-            print("The Walker seems to not notice.")
 
     def attack_damage(self):
         if self.attack:
@@ -289,13 +221,13 @@ class Walker(Character):
 
 
 class MainCharacter(object):
-    def __init__(self, take_damage, stamina, fight, inventory, health, damage):
+    def __init__(self, take_damage, stamina, inventory, health, damage, max_health):
         self.takeDamage = take_damage
         self.stamina = stamina
-        self.fight = fight
         self.inventory = inventory
         self.health = health
         self.damage = damage
+        self.max_health = max_health
 
     def fight(self):
         if self.stamina >= 10:
@@ -319,6 +251,10 @@ class MainCharacter(object):
         if self.stamina <= 60:
             print("You should run.")
 
+    def take_damage(self, amount):
+        self.health >= amount
+            # print("ooooooffffff, just lost a bit of health, i would run.")
+
 
 class Room(object):
     def __init__(self, name, north, south, east, west, inside, outside, description):
@@ -336,9 +272,24 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
+inventory1 = []
+
+
+burger = Burger("burger", "I would suggest to eat this delicious burger even though I doubt you have an appetite.", 20)
+
+
+soda = Soda("burger", "Nothing better than a nice soda.", 10)
+
+
+enhancer = Enhancer("enhancer", "Would save it but...", 50)
+
+
+MainCharacter = MainCharacter("take_damage", 100, inventory1, 100, 10, 100)
+
+
 # west_house = Room("West of House, 'north house")
 # north_house = Room("North of House", None)
-Walker = Walker("take_damage", "stamina", "fight", "inventory", "health", "alerted", "level", "damage", "attack")
+Walker = Walker("take_damage", "stamina", "fight", "inventory", "health", "level", "damage", "attack")
 
 
 your_house = Room("YOUR HOUSE", None, "your_car_outside", "jim's_house_outside", None, None, None,
@@ -436,7 +387,7 @@ current_node = your_house
 directions = ["north", "south", "east", "west", "inside", "outside"]
 short_directions = ["n", "s", "e", "w", "i", "o"]
 
-inventory1 = []
+
 
 
 while True:

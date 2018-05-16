@@ -34,8 +34,8 @@
       <file leaf-file-name="Gerardo Rodriguez Z Days.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gerardo Rodriguez Z Days.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="415" column="0" lean-forward="false" selection-start-line="415" selection-start-column="0" selection-end-line="432" selection-end-column="11" />
+            <state relative-caret-position="5629">
+              <caret line="431" column="25" lean-forward="false" selection-start-line="431" selection-start-column="25" selection-end-line="431" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -44,8 +44,8 @@
       <file leaf-file-name="Gerardo  Rodriguez Z Days Project.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gerardo  Rodriguez Z Days Project.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+            <state relative-caret-position="351">
+              <caret line="254" column="3" lean-forward="true" selection-start-line="254" selection-start-column="3" selection-end-line="254" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -118,6 +118,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,7 +131,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -629,16 +629,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gerardo Rodriguez Z Days.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="415" column="0" lean-forward="false" selection-start-line="415" selection-start-column="0" selection-end-line="432" selection-end-column="11" />
+        <state relative-caret-position="5629">
+          <caret line="431" column="25" lean-forward="false" selection-start-line="431" selection-start-column="25" selection-end-line="431" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gerardo  Rodriguez Z Days Project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+        <state relative-caret-position="351">
+          <caret line="254" column="3" lean-forward="true" selection-start-line="254" selection-start-column="3" selection-end-line="254" selection-end-column="3" />
           <folding />
         </state>
       </provider>
