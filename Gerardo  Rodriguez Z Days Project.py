@@ -64,6 +64,8 @@ class Mask(Armour):
 
     def protection(self):
         if Mask in inventory1:
+            print("Cool, really like th fact that it protects your face from being ripped off but the design is nice..."
+                  "")
             self.durability += MainCharacter.health
 
 
@@ -73,6 +75,7 @@ class ChestPlate(Armour):
 
     def protection(self):
         if ChestPlate in inventory1:
+            print("Now were talking, this baby can stop those gnarly zombie teeth from ripping your flesh.")
             self.durability += MainCharacter.health
 
 
@@ -82,7 +85,8 @@ class IronFists(Armour):
 
     def protection(self):
         if IronFists in inventory1:
-            self.durability += MainCharacter.health
+            print("Holy jesus, now your ready to smash some skulls.")
+            self.durability += MainCharacter.health and MainCharacter.damage
 
 
 class Weapon(Item):
@@ -91,34 +95,37 @@ class Weapon(Item):
         self.damage = damage
 
     def damage(self):
-        if Pistol or Shotgun or SMG or M14 or AK12 or Knife or BaseballBat in inventory1:
+        if DesertEagle or SPAS12 or UZI or M14 or AK12 or Knife or BaseballBat or BarrettM82 in inventory1:
             self.damage += MainCharacter.damage
 
 
-class Pistol(Weapon):
+class DesertEagle(Weapon):
     def __init__(self, name, description, damage):
-        super(Pistol, self).__init__(name, description, 'use', damage)
+        super(DesertEagle, self).__init__(name, description, 'use', damage)
 
     def damage(self):
-        if Pistol in inventory1:
+        if DesertEagle in inventory1:
+            print("Ok, this can be useful... for a while.")
             self.damage += MainCharacter.damage
 
 
-class Shotgun(Weapon):
+class SPAS12(Weapon):
     def __init__(self, name, description, damage):
-        super(Shotgun, self).__init__(name, description, 'use', damage)
+        super(SPAS12, self).__init__(name, description, 'use', damage)
 
     def damage(self):
-        if Shotgun in inventory1:
+        if SPAS12 in inventory1:
+            print("This girl is a pump action, treat her well...")
             self.damage += MainCharacter.damage
 
 
-class SMG(Weapon):
+class UZI(Weapon):
     def __init__(self, name, description, damage):
-        super(SMG, self).__init__(name, description, 'use', damage)
+        super(UZI, self).__init__(name, description, 'use', damage)
 
     def damage(self):
-        if SMG in inventory1:
+        if UZI in inventory1:
+            print("Too many pesky zombies, not anymore!")
             self.damage += MainCharacter.damage
 
 
@@ -128,6 +135,7 @@ class M14(Weapon):
 
     def damage(self):
         if M14 in inventory1:
+            print("The standard military gun, this will be great.")
             self.damage += MainCharacter.damage
 
 
@@ -137,7 +145,17 @@ class AK12(Weapon):
 
     def damage(self):
         if AK12 in inventory1:
+            print("Just when the zombies to start having hope, this baby will DESTROY ALL HOPE!")
             self.damage += MainCharacter.damage
+
+
+class BarrettM82(Weapon):
+    def __init__(self, name, description, damage):
+        super(BarrettM82, self).__init__(name, description, 'use', damage)
+
+    def damage(self):
+        if BarrettM82 in inventory1:
+            print("One shot, one kill.")
 
 
 class Knife(Weapon):
@@ -146,6 +164,7 @@ class Knife(Weapon):
 
     def damage(self):
         if Knife in inventory1:
+            print("Welp, at least you can fight, sort of...")
             self.damage += MainCharacter.damage
 
 
@@ -155,6 +174,7 @@ class BaseballBat(Weapon):
 
     def damage(self):
         if BaseballBat in inventory1:
+            print("OK, ok, not bad at all.")
             self.damage += MainCharacter.damage
 
 
@@ -275,13 +295,37 @@ class Room(object):
 inventory1 = []
 
 
-burger = Burger("burger", "I would suggest to eat this delicious burger even though I doubt you have an appetite.", 20)
+Burger = Burger("Burger", "I would suggest to eat this delicious burger even though I doubt you have an appetite.", 20)
 
 
-soda = Soda("burger", "Nothing better than a nice soda.", 10)
+Soda = Soda("Soda", "Nothing better than a nice soda.", 10)
 
 
-enhancer = Enhancer("enhancer", "Would save it but...", 50)
+Enhancer = Enhancer("Enhancer", "Would save it but...", 50)
+
+
+BarrettM82 = BarrettM82("BarrettM82", "One shot, one kill.", 150)
+
+
+M14 = M14("M14", "The standard military gun, this will be great.", 75)
+
+
+AK12 = AK12("AK12", "Just when the zombies to start having hope, this baby will DESTROY ALL HOPE!", 90)
+
+
+DesertEagle = DesertEagle("Desert Eagle", "Ok, this can be useful... for a while.", 25)
+
+
+Knife = Knife("Knife", "Ok, this can be useful... for a while.", 10)
+
+
+BaseballBat = BaseballBat("Baseball bat", "OK, ok, not bad at all.", 15)
+
+
+UZI = UZI("UZI", "Too many pesky zombies, not anymore!", 35)
+
+
+SPAS12 = SPAS12("SPAS-12", "This girl is a pump action, treat her well...", 55)
 
 
 MainCharacter = MainCharacter("take_damage", 100, inventory1, 100, 10, 100)
@@ -386,8 +430,6 @@ parking_lot = Room("PARKING LOT", "cashier_back_joes_burgers", None, "mall_outsi
 current_node = your_house
 directions = ["north", "south", "east", "west", "inside", "outside"]
 short_directions = ["n", "s", "e", "w", "i", "o"]
-
-
 
 
 while True:
