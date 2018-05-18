@@ -5,7 +5,7 @@ class Item(object):
         self.use = use
         # self.heal = heal
         # self.damage = damage
-        # self.durability = durability
+        # self..durability = durability
 
 
 class Healing(Item):
@@ -326,6 +326,17 @@ UZI = UZI("UZI", "Too many pesky zombies, not anymore!", 35)
 
 
 SPAS12 = SPAS12("SPAS-12", "This girl is a pump action, treat her well...", 55)
+
+
+Mask = Mask("Mask", "Cool, really like th fact that it protects your face from being ripped off but the design is nice."
+                    "..", 15)
+
+
+IronFists = IronFists("Iron Fists", "Holy jesus, now your ready to smash some skulls.", 15)
+
+
+ChestPlate = ChestPlate("Chest Plate", "Now were talking, this baby can stop those gnarly zombie teeth from ripping "
+                                       "your flesh.", 30)
 
 
 MainCharacter = MainCharacter("take_damage", 100, inventory1, 100, 10, 100)
