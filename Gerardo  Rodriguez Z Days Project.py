@@ -15,7 +15,7 @@ class Healing(Item):
 
     def heal(self):
         if Burger or Soda or Enhancer in inventory1:
-            self.heal += MainCharacter.health
+            self.heal += main_character.health
 
 
 class Burger(Healing):
@@ -25,7 +25,7 @@ class Burger(Healing):
     def heal(self):
         if Burger in inventory1:
             print("I would suggest to eat this delicious burger even though I doubt you have an appetite.")
-            self.heal += MainCharacter.health
+            self.heal += main_character.health
 
 
 class Soda(Healing):
@@ -35,7 +35,7 @@ class Soda(Healing):
     def heal(self):
         if Soda in inventory1:
             print("Nothing better than a nice soda.")
-            self.heal += MainCharacter.health
+            self.heal += main_character.health
 
 
 class Enhancer(Healing):
@@ -45,7 +45,7 @@ class Enhancer(Healing):
     def heal(self):
         if Enhancer in inventory1:
             print("Would save it but...")
-            self.heal += MainCharacter.health
+            self.heal += main_character.health
 
 
 class Armour(Item):
@@ -55,7 +55,7 @@ class Armour(Item):
 
     def protection(self):
         if Mask or ChestPlate or IronFists in inventory1:
-            self.durability += MainCharacter.health
+            self.durability += main_character.health
 
 
 class Mask(Armour):
@@ -66,7 +66,7 @@ class Mask(Armour):
         if Mask in inventory1:
             print("Cool, really like th fact that it protects your face from being ripped off but the design is nice..."
                   "")
-            self.durability += MainCharacter.health
+            self.durability += main_character.health
 
 
 class ChestPlate(Armour):
@@ -76,17 +76,18 @@ class ChestPlate(Armour):
     def protection(self):
         if ChestPlate in inventory1:
             print("Now were talking, this baby can stop those gnarly zombie teeth from ripping your flesh.")
-            self.durability += MainCharacter.health
+            self.durability += main_character.health
 
 
 class IronFists(Armour):
-    def __init__(self, name, description, durability):
+    def __init__(self, name, description, durability, damage):
         super(IronFists, self).__init__(name, description, 'use', durability)
+        self.damage = damage
 
     def protection(self):
         if IronFists in inventory1:
             print("Holy jesus, now your ready to smash some skulls.")
-            self.durability += MainCharacter.health and MainCharacter.damage
+            self.durability += main_character.health and main_character.damage
 
 
 class Weapon(Item):
@@ -96,7 +97,7 @@ class Weapon(Item):
 
     def damage(self):
         if DesertEagle or SPAS12 or UZI or M14 or AK12 or Knife or BaseballBat or BarrettM82 in inventory1:
-            self.damage += MainCharacter.damage
+            self.damage += main_character.damage
 
 
 class DesertEagle(Weapon):
@@ -106,7 +107,7 @@ class DesertEagle(Weapon):
     def damage(self):
         if DesertEagle in inventory1:
             print("Ok, this can be useful... for a while.")
-            self.damage += MainCharacter.damage
+            self.damage += main_character.damage
 
 
 class SPAS12(Weapon):
@@ -116,7 +117,7 @@ class SPAS12(Weapon):
     def damage(self):
         if SPAS12 in inventory1:
             print("This girl is a pump action, treat her well...")
-            self.damage += MainCharacter.damage
+            self.damage += main_character.damage
 
 
 class UZI(Weapon):
@@ -126,7 +127,7 @@ class UZI(Weapon):
     def damage(self):
         if UZI in inventory1:
             print("Too many pesky zombies, not anymore!")
-            self.damage += MainCharacter.damage
+            self.damage += main_character.damage
 
 
 class M14(Weapon):
@@ -136,7 +137,7 @@ class M14(Weapon):
     def damage(self):
         if M14 in inventory1:
             print("The standard military gun, this will be great.")
-            self.damage += MainCharacter.damage
+            self.damage += main_character.damage
 
 
 class AK12(Weapon):
@@ -146,7 +147,7 @@ class AK12(Weapon):
     def damage(self):
         if AK12 in inventory1:
             print("Just when the zombies to start having hope, this baby will DESTROY ALL HOPE!")
-            self.damage += MainCharacter.damage
+            self.damage += main_character.damage
 
 
 class BarrettM82(Weapon):
@@ -156,6 +157,7 @@ class BarrettM82(Weapon):
     def damage(self):
         if BarrettM82 in inventory1:
             print("One shot, one kill.")
+            self.damage += main_character.damage
 
 
 class Knife(Weapon):
@@ -165,7 +167,7 @@ class Knife(Weapon):
     def damage(self):
         if Knife in inventory1:
             print("Welp, at least you can fight, sort of...")
-            self.damage += MainCharacter.damage
+            self.damage += main_character.damage
 
 
 class BaseballBat(Weapon):
@@ -175,19 +177,18 @@ class BaseballBat(Weapon):
     def damage(self):
         if BaseballBat in inventory1:
             print("OK, ok, not bad at all.")
-            self.damage += MainCharacter.damage
+            self.damage += main_character.damage
 
 
 class Character(object):
-    def __init__(self, take_damage, stamina, fight, inventory, health, damage):
-        self.takeDamage = take_damage
+    def __init__(self, take_damage, stamina, inventory, health, damage):
+        self.take_damage = take_damage
         self.stamina = stamina
-        self.fight = fight
         self.inventory = inventory
         self.health = health
         self.damage = damage
 
-    def fight(self):
+    def take_damage(self):
         if self.stamina >= 10:
             print("You kick the zombie.")
             self.stamina -= 10
@@ -210,44 +211,61 @@ class Character(object):
             print("You should run.")
 
 
-character = Character("take_damage", "stamina", "fight", "inventory", "health", "damage")
+character = Character("take_damage", "stamina", "inventory", "health", "damage")
 
 
-class Walker(Character):
-    def __init__(self,  take_damage, stamina, fight, inventory, health, level, damage, attack):
-        super(Walker, self).__init__(take_damage, stamina, fight, inventory, health, damage)
-        self.level = level
-        self.damage = damage
-        self.attack = attack
+class Walker1(Character):
+    def __init__(self,  take_damage, stamina, inventory, health, damage):
+        super(Walker1, self).__init__(take_damage, stamina, inventory, health, damage)
+        self.take_damage = take_damage
+        self.stamina = stamina
+        self.inventory = inventory
         self.health = health
+        self.damage = damage
 
-    def attack_damage(self):
-        if self.attack:
+    def attack(self):
+        if self.damage:
             self.damage -= 40
             print("You have been attacked by the Walker, you should run.")
 
-    def strength(self):
-        if self.level == 1:
-            self.damage = 40
-            self.health = 100
 
-        elif self.level == 2:
-            self.damage = 50
-            self.health = 110
+class Walker2(Character):
+    def __init__(self,  take_damage, stamina, inventory, health, damage):
+        super(Walker2, self).__init__(take_damage, stamina, inventory, health, damage)
+        self.take_damage = take_damage
+        self.stamina = stamina
+        self.inventory = inventory
+        self.health = health
+        self.damage = damage
 
-        elif self.level == 3:
-            self.damage = 60
-            self.health = 120
+    def attack(self):
+        if self.damage:
+            self.damage -= 40
+            print("You have been attacked by the Walker, you should run.")
+
+
+class Walker3(Character):
+    def __init__(self,  take_damage, stamina, inventory, health, damage):
+        super(Walker3, self).__init__(take_damage, stamina, inventory, health, damage)
+        self.take_damage = take_damage
+        self.stamina = stamina
+        self.inventory = inventory
+        self.health = health
+        self.damage = damage
+
+    def attack(self):
+        if self.damage:
+            self.damage -= 40
+            print("You have been attacked by the Walker, you should run.")
 
 
 class MainCharacter(object):
-    def __init__(self, take_damage, stamina, inventory, health, damage, max_health):
+    def __init__(self, take_damage, stamina, inventory, health, damage):
         self.takeDamage = take_damage
         self.stamina = stamina
         self.inventory = inventory
         self.health = health
         self.damage = damage
-        self.max_health = max_health
 
     def fight(self):
         if self.stamina >= 10:
@@ -271,13 +289,13 @@ class MainCharacter(object):
         if self.stamina <= 60:
             print("You should run.")
 
-    def take_damage(self, amount):
-        self.health >= amount
-            # print("ooooooffffff, just lost a bit of health, i would run.")
+    def take_damage(self, amount1):
+        self.health -= amount1
+            print("ooooooffffff, just lost a bit of health, i would run.")
 
 
 class Room(object):
-    def __init__(self, name, north, south, east, west, inside, outside, description):
+    def __init__(self, name, north, south, east, west, inside, outside, description, enemy):
         self.name = name
         self.north = north
         self.south = south
@@ -286,6 +304,7 @@ class Room(object):
         self.inside = inside
         self.outside = outside
         self.description = description
+        self.enemy = enemy
 
     def move(self, direction):
         global current_node
@@ -295,61 +314,82 @@ class Room(object):
 inventory1 = []
 
 
-Burger = Burger("Burger", "I would suggest to eat this delicious burger even though I doubt you have an appetite.", 20)
+burger = Burger("Burger", "I would suggest to eat this delicious burger even though I doubt you have an appetite.", 20)
 
 
-Soda = Soda("Soda", "Nothing better than a nice soda.", 10)
+soda = Soda("Soda", "Nothing better than a nice soda.", 10)
 
 
-Enhancer = Enhancer("Enhancer", "Would save it but...", 50)
+enhancer = Enhancer("Enhancer", "Would save it but...", 50)
 
 
-BarrettM82 = BarrettM82("BarrettM82", "One shot, one kill.", 150)
+barrett_m82 = BarrettM82("BarrettM82", "One shot, one kill.", 150)
 
 
-M14 = M14("M14", "The standard military gun, this will be great.", 75)
+m14 = M14("M14", "The standard military gun, this will be great.", 75)
 
 
-AK12 = AK12("AK12", "Just when the zombies to start having hope, this baby will DESTROY ALL HOPE!", 90)
+ak12 = AK12("AK12", "Just when the zombies to start having hope, this baby will DESTROY ALL HOPE!", 90)
 
 
-DesertEagle = DesertEagle("Desert Eagle", "Ok, this can be useful... for a while.", 25)
+desert_eagle = DesertEagle("Desert Eagle", "Ok, this can be useful... for a while.", 25)
 
 
-Knife = Knife("Knife", "Ok, this can be useful... for a while.", 10)
+knife = Knife("Knife", "Ok, this can be useful... for a while.", 10)
 
 
-BaseballBat = BaseballBat("Baseball bat", "OK, ok, not bad at all.", 15)
+baseball_bat = BaseballBat("Baseball bat", "OK, ok, not bad at all.", 15)
 
 
-UZI = UZI("UZI", "Too many pesky zombies, not anymore!", 35)
+uzi = UZI("UZI", "Too many pesky zombies, not anymore!", 35)
 
 
-SPAS12 = SPAS12("SPAS-12", "This girl is a pump action, treat her well...", 55)
+spas12 = SPAS12("SPAS-12", "This girl is a pump action, treat her well...", 55)
 
 
-Mask = Mask("Mask", "Cool, really like th fact that it protects your face from being ripped off but the design is nice."
+mask = Mask("Mask", "Cool, really like th fact that it protects your face from being ripped off but the design is nice."
                     "..", 15)
 
 
-IronFists = IronFists("Iron Fists", "Holy jesus, now your ready to smash some skulls.", 15)
+iron_fists = IronFists("Iron Fists", "Holy jesus, now your ready to smash some skulls.", 50, 50)
 
 
-ChestPlate = ChestPlate("Chest Plate", "Now were talking, this baby can stop those gnarly zombie teeth from ripping "
-                                       "your flesh.", 30)
+chest_plate = ChestPlate("Chest Plate", "Now were talking, this baby can stop those gnarly zombie teeth from ripping "
+                         "your flesh.", 30)
 
 
-MainCharacter = MainCharacter("take_damage", 100, inventory1, 100, 10, 100)
+main_character = MainCharacter("take_damage", 100, inventory1, 100, 10)
+
+
+amount1 = 40
+
+
+amount2 = 50
+
+
+amount3 = 60
+
+
+# if MainCharacter.health <= 0:
+#     exit(0)
 
 
 # west_house = Room("West of House, 'north house")
 # north_house = Room("North of House", None)
-Walker = Walker("take_damage", "stamina", "fight", "inventory", "health", "level", "damage", "attack")
+Walker1 = Walker1(0, 100, None, 100, 40)
+
+
+Walker2 = Walker2(0, 90, None, 110, 50)
+
+
+Walker3 = Walker3(0, 80, None, 120, 60)
+
 
 
 your_house = Room("YOUR HOUSE", None, "your_car_outside", "jim's_house_outside", None, None, None,
                   "Welcome, the day has come, the undead rule the world but, you can make a difference by finding a "
-                  "cure. East is where your neighbors live, and South is your car, broken because of all the anarchy.")
+                  "cure. East is where your neighbors live, and South is your car, broken because of all the anarchy.",
+                  )
 
 your_car_outside = Room("OUTSIDE OF CAR", "your_house", "kate's_house", "joe's_burgers", None, "inside_of_car", None,
                         "The door is open, missing its window, the engine is missing, which probably means everything "
@@ -443,16 +483,68 @@ directions = ["north", "south", "east", "west", "inside", "outside"]
 short_directions = ["n", "s", "e", "w", "i", "o"]
 
 
+# if MainCharacter.health <= 0:
+#     exit(0)
+
+
 while True:
     print(current_node.name)
     print(current_node.description)
     command = input('>_ ').lower().strip()
+
+    if desert_eagle in inventory1:
+        main_character.damage = desert_eagle.damage
+
+    if ak12 in inventory1:
+        main_character.damage = ak12.damage
+
+    if m14 in inventory1:
+        main_character.damage = m14.damage
+
+    if uzi in inventory1:
+        main_character.damage = uzi.damage
+
+    if barrett_m82 in inventory1:
+        main_character.damage = barrett_m82.damage
+
+    if spas12 in inventory1:
+        main_character.damage = spas12.damage
+
+    if baseball_bat in inventory1:
+        main_character.damage = baseball_bat.damage
+
+    if knife in inventory1:
+        main_character.damage = knife.damage
+
+    if iron_fists in inventory1:
+        main_character.damage = iron_fists.damage
+
+    if iron_fists in inventory1:
+        main_character.health += iron_fists.durability
+
+    if mask in inventory1:
+        main_character.health += mask.durability
+
+    if chest_plate in inventory1:
+        main_character.health += chest_plate.durability
+
+    if enhancer in inventory1:
+        main_character.health += enhancer.heal
+
+    if burger in inventory1:
+        main_character.health += burger.heal
+
+    if soda in inventory1:
+        main_character.health += soda.heal
+
     if command == 'quit':
         quit(0)
+
     elif command in short_directions:
         # Finds the command in short directions (index number)
         pos = short_directions.index(command)
         command = directions[pos]
+
     if command in directions:
         try:
             current_node.move(command)
