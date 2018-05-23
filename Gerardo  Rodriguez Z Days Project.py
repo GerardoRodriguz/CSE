@@ -1,3 +1,6 @@
+import random
+
+
 class Item(object):
     def __init__(self, name, description, use):
         self.name = name
@@ -181,23 +184,12 @@ class BaseballBat(Weapon):
 
 
 class Character(object):
-    def __init__(self, take_damage, stamina, inventory, health, damage):
-        self.take_damage = take_damage
+    def __init__(self, name, stamina, inventory, health, damage):
+        self.name = name
         self.stamina = stamina
         self.inventory = inventory
         self.health = health
         self.damage = damage
-
-    def take_damage(self):
-        if self.stamina >= 10:
-            print("You kick the zombie.")
-            self.stamina -= 10
-
-        if self.stamina <= 60:
-            print("You should run.")
-
-        if self.health <= 60:
-            print("You should run.")
 
     def block(self):
         if self.health >= 20:
@@ -211,13 +203,13 @@ class Character(object):
             print("You should run.")
 
 
-character = Character("take_damage", "stamina", "inventory", "health", "damage")
+character = Character("name", "stamina", "inventory", "health", "damage")
 
 
 class Walker1(Character):
-    def __init__(self,  take_damage, stamina, inventory, health, damage):
-        super(Walker1, self).__init__(take_damage, stamina, inventory, health, damage)
-        self.take_damage = take_damage
+    def __init__(self, name, stamina, inventory, health, damage):
+        super(Walker1, self).__init__(name, stamina, inventory, health, damage)
+        self.name = name
         self.stamina = stamina
         self.inventory = inventory
         self.health = health
@@ -227,12 +219,15 @@ class Walker1(Character):
         if self.damage:
             self.damage -= 40
             print("You have been attacked by the Walker, you should run.")
+
+        if Walker1.health <= 0:
+            print("You just killed the Walker!")
 
 
 class Walker2(Character):
-    def __init__(self,  take_damage, stamina, inventory, health, damage):
-        super(Walker2, self).__init__(take_damage, stamina, inventory, health, damage)
-        self.take_damage = take_damage
+    def __init__(self, name, stamina, inventory, health, damage):
+        super(Walker2, self).__init__(name, stamina, inventory, health, damage)
+        self.name = name
         self.stamina = stamina
         self.inventory = inventory
         self.health = health
@@ -240,14 +235,17 @@ class Walker2(Character):
 
     def attack(self):
         if self.damage:
-            self.damage -= 40
+            self.damage -= 50
             print("You have been attacked by the Walker, you should run.")
+
+        if Walker2.health == 0:
+            print("You just killed the Walker!")
 
 
 class Walker3(Character):
-    def __init__(self,  take_damage, stamina, inventory, health, damage):
-        super(Walker3, self).__init__(take_damage, stamina, inventory, health, damage)
-        self.take_damage = take_damage
+    def __init__(self, name, stamina, inventory, health, damage):
+        super(Walker3, self).__init__(name, stamina, inventory, health, damage)
+        self.name = name
         self.stamina = stamina
         self.inventory = inventory
         self.health = health
@@ -255,19 +253,45 @@ class Walker3(Character):
 
     def attack(self):
         if self.damage:
-            self.damage -= 40
+            self.damage -= 60
             print("You have been attacked by the Walker, you should run.")
 
+        if Walker3.health == 0:
+                print("You just killed the Walker!")
 
-class MainCharacter(object):
-    def __init__(self, take_damage, stamina, inventory, health, damage):
-        self.takeDamage = take_damage
+
+class Walker4(Character):
+    def __init__(self, name, stamina, inventory, health, damage):
+        super(Walker4, self).__init__(name, stamina, inventory, health, damage)
+        self.name = name
         self.stamina = stamina
         self.inventory = inventory
         self.health = health
         self.damage = damage
 
-    def fight(self):
+    def attack(self):
+        if self.damage:
+            self.damage -= 70
+            print("You have been attacked by the Walker, you should run.")
+
+        if Walker4.health == 0:
+            print("You just killed the Walker!")
+
+
+class MainCharacter(object):
+    def __init__(self, stamina, inventory, health, damage):
+        self.stamina = stamina
+        self.inventory = inventory
+        self.health = health
+        self.damage = damage
+
+    def equip(self, weapon):
+        if weapon in inventory1:
+            input("Choose which weapon to equip.")
+            if input in all_weapons and input in inventory1:
+                weapon.attack = self.damage
+
+    def kick(self):
         if self.stamina >= 10:
             print("You kick the zombie.")
             self.stamina -= 10
@@ -289,9 +313,32 @@ class MainCharacter(object):
         if self.stamina <= 60:
             print("You should run.")
 
-    def take_damage(self, amount1):
-        self.health -= amount1
-            print("ooooooffffff, just lost a bit of health, i would run.")
+    def hit(self, target):
+        target.take_damage(self.damage)
+        if main_character.health <= 0:
+            print('DEAD')
+            exit(0)
+        if target.health <= 0:
+            print('The %s is dead.' % target.name)
+            if target.health < 0:
+                target.health = 0
+
+    def fight(self, enemy):
+        try:
+            if enemy == current_node.enemy:
+                while enemy.health != 0:
+                    choice = random.choice([enemy, self])
+                    if choice == self:
+                        enemy.hit(self)
+                        print("Nice shot!")
+                        print(str(main_character.health))
+                        print(str(current_node.enemy.health))
+                    elif choice == enemy:
+                        self.hit(enemy)
+                        print(str(main_character.health))
+
+        except AttributeError:
+            print("Stop swinging that thing around, you're DEFINITELY going to 'Accidentally' shoot somebody.")
 
 
 class Room(object):
@@ -314,6 +361,9 @@ class Room(object):
 inventory1 = []
 
 
+all_weapons = (BaseballBat, BarrettM82, AK12, M14, Knife, DesertEagle, SPAS12, UZI, IronFists)
+
+
 burger = Burger("Burger", "I would suggest to eat this delicious burger even though I doubt you have an appetite.", 20)
 
 
@@ -326,7 +376,7 @@ enhancer = Enhancer("Enhancer", "Would save it but...", 50)
 barrett_m82 = BarrettM82("BarrettM82", "One shot, one kill.", 150)
 
 
-m14 = M14("M14", "The standard military gun, this will be great.", 75)
+m14 = M14("glowing object", "Nice. The standard military gun, this will be great.", 75)
 
 
 ak12 = AK12("AK12", "Just when the zombies to start having hope, this baby will DESTROY ALL HOPE!", 90)
@@ -358,16 +408,10 @@ chest_plate = ChestPlate("Chest Plate", "Now were talking, this baby can stop th
                          "your flesh.", 30)
 
 
-main_character = MainCharacter("take_damage", 100, inventory1, 100, 10)
+main_character = MainCharacter(100, inventory1, 100, 10)
 
 
-amount1 = 40
-
-
-amount2 = 50
-
-
-amount3 = 60
+enemy = Walker1, Walker2, Walker3, Walker4
 
 
 # if MainCharacter.health <= 0:
@@ -376,106 +420,121 @@ amount3 = 60
 
 # west_house = Room("West of House, 'north house")
 # north_house = Room("North of House", None)
-Walker1 = Walker1(0, 100, None, 100, 40)
+Walker1 = Walker1('Walker1', 100, None, 100, 40)
 
 
-Walker2 = Walker2(0, 90, None, 110, 50)
+Walker2 = Walker2('Walker2', 90, None, 110, 50)
 
 
-Walker3 = Walker3(0, 80, None, 120, 60)
+Walker3 = Walker3('Walker3', 80, None, 120, 60)
 
+
+Walker4 = Walker4('Walker4', 70, None, 150, 70)
 
 
 your_house = Room("YOUR HOUSE", None, "your_car_outside", "jim's_house_outside", None, None, None,
                   "Welcome, the day has come, the undead rule the world but, you can make a difference by finding a "
                   "cure. East is where your neighbors live, and South is your car, broken because of all the anarchy.",
-                  )
+                  None)
 
 your_car_outside = Room("OUTSIDE OF CAR", "your_house", "kate's_house", "joe's_burgers", None, "inside_of_car", None,
                         "The door is open, missing its window, the engine is missing, which probably means everything "
-                        "inside is stolen.")
+                        "inside is stolen and a Knife on the ground.", None)
 
 your_car_inside = Room("INSIDE OF CAR", None, None, None, None, None, "your_car_outside", "Nothing much, just window "
-                       "shards, and a pen on what looks like to be your bloody car mat.")
+                       "shards, and a pen on what looks like to be your bloody car mat, but there is a baseball_bat in "
+                       "the trunk.", None)
 
 joes_burgers_outside = Room("OUTSIDE JOE'S BURGERS", "jim's_house_outside", "parking_lot", None, "your_car_outside",
                             "joe's_burgers_inside", "joe's_burgers_outside", "One of the best fast food place, Joe's "
-                            "Burgers with extra calories and fat.")
+                            "Burgers with extra calories and fat.", None)
 
 joes_burgers_inside = Room("INSIDE JOE'S BURGERS", None, "cashier_back_joe's_burgers", None, "your_car_outside", None,
                            "joe's_burgers_outside", "Wow. Tables are all flipped over and on the floor is mustard, "
                            "ketchup, soda, and not sure if on the floor is blood but cannot notice because of all the "
                            "condiments and soda. It is weird how this is a burger place but there is no burgers on the "
-                           "floor or still standing tables...")
+                           "floor or still standing tables... op, there is one burger on the main counter", None)
 
 cashier_back_joes_burgers = Room("CASHIER BACK", "joe's_burgers_inside", "parking_lot", None, None, None,
                                  "parking_lot", "Shh... there is a mess full of raw meat, blood, and two weird "
-                                 "human-like creatures. Why not say human? Mostly since they were all bloody, "
-                                 "ripped clothes, and the fact they are eating frozen beef, chicken, and raw meat.")
+                                 "human-like creature. Why not say human? Mostly since its all bloody, ripped clothes, "
+                                 "and the fact they are eating frozen beef, chicken, and raw meat. But the tore "
+                                 "clothes can show he was a Sheriff, on his holster, there is a DesertEagle which "
+                                 "looks bad@$!, Would kill the Walker1 though.", Walker1)
 
 jims_house_outside = Room("OUTSIDE OF JIM'S HOUSE", None, "joe's_burgers_outside", "your_house", "gas_stop_outside",
                           "jim's_house_inside", None, "This is your neighbor's house, he was a quiet neighbor and to "
                           "say the truth, he was creepy. His house looks all messed up because of anarchy and the "
-                          "door is wide open. Strange...")
+                          "door is wide open. Strange...", None)
 
 jims_house_inside = Room("INSIDE OF JIM'S HOUSE", "jim's_bathroom", "jim's_bedroom", "gas_stop_outside",
                          "your_house", None, "your_house", "Looks like someone already looted the place, only a table"
                          " with a missing leg remains with the furniture. North is Jim's bathroom, South is Jim's "
-                         "bedroom, East is an exit, and another exit behind you.")
+                         "bedroom, East is an exit, and another exit behind you.", None)
 
 jims_bathroom = Room("JIM'S BATHROOM", None, "jim's_house_inside", None, None, None, "jim's_house_inside", "Jim clearly"
                      " does not clean his bathroom at all. But besides that, everything is gone except the toilet, sink"
-                     ", and bathroom.")
+                     ", and bathroom.", None)
 
 jims_bedroom = Room("JIM'S BEDROOM", "jim's_house_inside", None, None, None, None, "jims_house_inside", "It looks like "
-                    "a massacre in here with all the bedsheets covered up in a blood and there seems to be a "
-                    "figure standing there just staring at a wall. I would recommend to leave.")
+                    "a massacre in here with all the bedsheets covered up in a blood and there seems to be a Walker1 "
+                    "just staring at a wall. I would recommend to leave.", Walker1)
 
 kates_house_outside = Room("OUTSIDE KATE'S HOUSE", "your_car", None, "parking_lot", None, "kates_house_inside", None,
                            "Kate, Kate, Kate, she was ex before al this and with all this happening, I wonder where "
                            "she is. To shorten the history between you and your ex, you guys only separated because of "
-                           "the universities. You haven't had the guts to pass by her house at all...")
+                           "the universities. You haven't had the guts to pass by her house at all...", None)
 
 kates_house_inside = Room("INSIDE KATE'S HOUSE", "kate's_house_outside", "kate's_basement", "parking_lot",
                           "kate's_kitchen", None, "kates_house_outside", "Well, considering the whole apocalypse, her"
                           " house is looking decent and mostly everything is in place. There seems to be some stairs "
                           "leading down South, East is a door exit, and West is Kate's kitchen. I keep getting a "
-                          "strange feeling someone is in this house...")
+                          "strange feeling someone is in this house...", None)
 
 kates_basement = Room("KATE'S BASEMENT", "kate's_house_inside", None, None, None, None, "kate's_basement", "You see "
-                      "very little but you can see visible a creature, this is creepy.")
+                      "very little but you can see visible a Walker3, like a Walker1 just more (hence more) health, "
+                      "and strength you know nothing you can't handle (sarcasm by the way) this is creepy. But maybe I "
+                      "guess you can fight the Walker3 for that sick IronFists, and ChestPlate, you know if you want "
+                      "but I highly doubt you will kill it. I'm not gonna say sorry since i'm saving your life",
+                      Walker3)
 
 kates_kitchen = Room("KATE'S KITCHEN", None, None, "kate's_house_inside", None, None, "kate's_house_inside", "Nevermore"
-                     ", looks like the house isn't alone after all if you consider a creature eating raw meat from a "
-                     "fridge. Slowly move out of this room. You know, if you want to live.")
+                     ", looks like the house isn't alone after all if you consider a Walker2 eating raw meat from a "
+                     "fridge. Slowly move out of this room. You know, if you want to live. There is one cabinet on the "
+                     "right is empty, but there is an Enhancer which is op.", Walker2)
 
 gas_stop_outside = Room("OUTSIDE GAS STOP", None, "mall_outside", None, "jim's_house_outside", "gas_stop_inside", None,
                         "If you had a vehicle with low gas, this would be the perfect place to go to but for a snack, "
-                        "not so much if you consider blood dripping from the main entrance.")
+                        "not so much if you consider blood dripping from the main entrance.", None)
 
 gas_stop_inside = Room("INSIDE GAS STOP", None, "mall_outside", None, "gas_stop_outside", None, "gas_stop_outside",
-                       "The aisles are all empty and there is a weird grunting sound coming from the left aisle. Maybe "
-                       "turn South to the exit to a store, I think.")
+                       "The aisles are all empty and there red Walker3 just staring you with its bloodthirsty eyes. "
+                       "Maybe turn South to the exit to a store, I think. There is a dope SPAS12 on the counter though "
+                       "if you want it and one Soda.", Walker3)
 
 mall_outside = Room("OUTSIDE OF MALL", "gas_stop_outside", None, None, "parking_lot", "mall_inside", None, "Oh crude, "
                     "this is a mall. Probably the worst place to go to in a zombie apocalypse and has been proven in "
                     "many theories. You should be very quiet if you enter you know, if you want...we don't have to go "
-                    "right?")
+                    "right?", None)
 
 mall_inside = Room("INSIDE OF MALL", "malls_shoe_store", None, "malls_food_court", "mall_outside", None, "mall_outside",
                    "Ok, be careful where you step and how you step, don't attract to much attention to yourself. North "
                    "is the shoes store, South seems to be locked and unavailable, and East is the breeding ground of "
-                   "these creatures, the food court.")
+                   "these creatures, the food court.", None)
 
 malls_shoe_store = Room("MALL'S SHOE STORE", None, "mall_inside", None, None, None, "mall_inside", "Even though those "
                         "Jordans look really fresh, maybe stick to your shoes because those your wearing look way less "
-                        "bulkier than those fresh Jordan. Just saying.")
+                        "bulkier than those fresh Jordan. Just saying. I see a glowing object on the floor but i don't "
+                        "know what is i'm just scared of the flaming rage eyes of the Walker3.", Walker3)
 
 mall_food_court = Room("MALL FOOD COURT", None, None, None, "mall_inside", None, "mall_inside", "Eyes are looking "
-                       "right at you, like dozens. Leave now because I really enjoy life.")
+                       "right at you, like as if you are just a snack. Leave now because I really enjoy life. Or fight "
+                       "that military Walker3 that has a AK12 strapped on his back but never underestimate a Walker3.",
+                       Walker3)
 
 parking_lot = Room("PARKING LOT", "cashier_back_joes_burgers", None, "mall_outside", "kate's_house_outside", None,
-                   None, "Just any normal parking lot, empty and blood and guts on the floor.")
+                   None, "Just any normal parking lot, empty and blood and guts on the floor. But that UZI looks "
+                         "helpful", None)
 
 
 current_node = your_house
@@ -491,6 +550,20 @@ while True:
     print(current_node.name)
     print(current_node.description)
     command = input('>_ ').lower().strip()
+    if command == 'quit':
+        quit(0)
+    elif command in short_directions:
+        # Finds the command in short directions (index number)
+        pos = short_directions.index(command)
+        command = directions[pos]
+    if command in directions:
+        try:
+            current_node.move(command)
+        except KeyError:
+            print("You cannot go that way.")
+    else:
+        print("Command not found.")
+    print()
 
     if desert_eagle in inventory1:
         main_character.damage = desert_eagle.damage
@@ -516,35 +589,31 @@ while True:
     if knife in inventory1:
         main_character.damage = knife.damage
 
-    if iron_fists in inventory1:
-        main_character.damage = iron_fists.damage
-
-    if iron_fists in inventory1:
-        main_character.health += iron_fists.durability
-
-    if mask in inventory1:
-        main_character.health += mask.durability
-
-    if chest_plate in inventory1:
-        main_character.health += chest_plate.durability
-
     if enhancer in inventory1:
         main_character.health += enhancer.heal
-
-    if burger in inventory1:
-        main_character.health += burger.heal
 
     if soda in inventory1:
         main_character.health += soda.heal
 
-    if command == 'quit':
-        quit(0)
+    if burger in inventory1:
+        main_character += burger.heal
+
+    if mask in inventory1:
+        main_character.health += mask.durability
+
+    if iron_fists in inventory1:
+        main_character.health += iron_fists.durability
+
+    if iron_fists in inventory1:
+        main_character.health = iron_fists.damage
+
+    if chest_plate in inventory1:
+        main_character.health += chest_plate.durability
 
     elif command in short_directions:
         # Finds the command in short directions (index number)
         pos = short_directions.index(command)
         command = directions[pos]
-
     if command in directions:
         try:
             current_node.move(command)
