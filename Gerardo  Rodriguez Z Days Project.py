@@ -323,7 +323,7 @@ class MainCharacter(object):
             if target.health < 0:
                 target.health = 0
 
-    def fight(self, enemy):
+    def damage(self, enemy):
         try:
             if enemy == current_node.enemy:
                 while enemy.health != 0:
@@ -544,26 +544,74 @@ short_directions = ["n", "s", "e", "w", "i", "o"]
 
 # if MainCharacter.health <= 0:
 #     exit(0)
-
-
 while True:
+    print("If you need help navigating this game type 'help' to get the basics of the controls.\n")
     print(current_node.name)
     print(current_node.description)
-    command = input('>_ ').lower().strip()
+    command = input('>_').lower().strip()
+
+    if current_node == your_house:
+        if core and right_side and left_side in inventory_real:
+            current_node = vault
+            print("")
+
+    if main_character.health <= 0:
+        exit(0)
+
+    if command == 'heal':
+        if soda or burger or enhancer in inventory1:
+            if zero.health == zero.max_health:
+                print("")
+
+    if command == 'cash':
+        print(str(zero.money))
+
     if command == 'quit':
         quit(0)
+
+    if command == 'inv' or 'inventory':
+        print(str(inventory_real))
+
+    if command == 'buy':
+        shop = [golden_gun_galactic_destruction, ]
+        if current_node == market:
+            print("The Golden Gun Of Galactic Destruction       "
+                  "               (0)                           ")
+
+    if command == 'damage':
+        print("<================}==========================================================================>>")
+        print(current_node.enemy.name)
+        print(current_node.enemy.description)
+
+        main_character.damage(current_node.enemy)
+        # print(str(zero.health))
+        # print(str(current_node.enemy.health))
+
+    if command == 'help':
+        print(
+            "Type 'fight' to attack/fight. \n Type 'inventory' or 'inv' to look at what you have in your inventory. "
+            "\n Type 'equip' to choose which weapon you are want to use. \n ")
+
+    # if command == 'all commands':
+    #     print(str(the_king_of_commands))
+
     elif command in short_directions:
-        # Finds the command in short directions (index number)
+        # Finds the command in shorts directions (index #)
         pos = short_directions.index(command)
         command = directions[pos]
+
     if command in directions:
         try:
             current_node.move(command)
         except KeyError:
-            print("You cannot go that way.")
-    else:
-        print("Command not found.")
+            print('Nope, Sorry. \n Try again.')
+
+    elif command not in the_king_of_commands:
+        print(
+            "Command Not Recognized. \n You might've messed up somewhere, type in 'all commands' and this will show "
+            "the full list of useful commands.")
     print()
+
 
     if desert_eagle in inventory1:
         main_character.damage = desert_eagle.damage
@@ -610,15 +658,3 @@ while True:
     if chest_plate in inventory1:
         main_character.health += chest_plate.durability
 
-    elif command in short_directions:
-        # Finds the command in short directions (index number)
-        pos = short_directions.index(command)
-        command = directions[pos]
-    if command in directions:
-        try:
-            current_node.move(command)
-        except KeyError:
-            print("You cannot go that way.")
-    else:
-        print("Command not found.")
-    print()
